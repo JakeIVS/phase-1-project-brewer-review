@@ -8,7 +8,7 @@
 	position:absolute;
 }
 #title-container { 
-	background-color:rgba(241.18749797344208, 156.77186608314514, 156.77186608314514, 1);
+	background-image:conic-gradient(#e0a951, #b05315,#744509, #e0a951);
 	width:1440px;
 	height:268px;
 	position:absolute;
