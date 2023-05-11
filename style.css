@@ -1,13 +1,13 @@
-.e1_2 { 
+#header-container { 
 	overflow:hidden;
 }
-.e1_2 { 
+#header-container { 
 	background-color:rgba(255, 255, 255, 1);
 	width:1440px;
 	height:1024px;
 	position:absolute;
 }
-.e1_4 { 
+#title-container { 
 	background-color:rgba(241.18749797344208, 156.77186608314514, 156.77186608314514, 1);
 	width:1440px;
 	height:268px;
@@ -15,19 +15,19 @@
 	left:0px;
 	top:0px;
 }
-.e1_5 { 
+#page-title { 
 	color:rgba(0, 0, 0, 1);
 	width:655px;
 	height:99px;
-	position:absolute;
+	position:relative;
 	left:392px;
-	top:25px;
+	top:-15px;
 	font-family:Jacques Francois Shadow;
-	text-align:center;
+	text-align:center;	
 	font-size:64px;
 	letter-spacing:0;
 }
-.e1_22 { 
+#image-container { 
 	background-color:rgba(253.93750101327896, 87.82006680965424, 87.82006680965424, 1);
 	width:1440px;
 	height:138px;
@@ -35,27 +35,30 @@
 	left:0px;
 	top:130px;
 }
-.e1_7 { 
+#list-container { 
 	background-color:rgba(229.56164181232452, 250.75000405311584, 169.2562633752823, 1);
 	width:454px;
 	height:756px;
 	position:absolute;
-	left:0px;
-	top:268px;
+	left:9px;
+	top: 276px;
 }
-.e1_8 { 
+#list-header { 
 	color:rgba(0, 0, 0, 1);
 	width:131px;
 	height:19px;
-	position:absolute;
-	left:19px;
-	top:16px;
 	font-family:Inter;
 	text-align:center;
-	font-size:16px;
-	letter-spacing:0;
+	position:relative;
+	margin-left: 10px;
+	top: 20px;
+	font-size:27px;
+	letter-spacing:7px;
+	background-color: rgba(0, 0, 0, 0.144);
+	padding: 5px;
+	border-radius: 5px;
 }
-.e1_9 { 
+#brewery-list { 
 	color:rgba(0, 0, 0, 1);
 	width:229px;
 	height:674px;
@@ -67,15 +70,16 @@
 	font-size:16px;
 	letter-spacing:0;
 }
-.e1_14 { 
+#brewery-details { 
 	background-color:rgba(138.0275934934616, 239.09332394599915, 252.87500202655792, 1);
 	width:869px;
 	height:405px;
 	position:absolute;
 	left:503px;
 	top:575px;
+	border-bottom-right-radius: 50px;
 }
-.e1_15 { 
+#details-name { 
 	color:rgba(0, 0, 0, 1);
 	width:149px;
 	height:45px;
@@ -87,7 +91,7 @@
 	font-size:40px;
 	letter-spacing:0;
 }
-.e1_16 { 
+#details-address { 
 	color:rgba(0, 0, 0, 1);
 	width:79px;
 	height:24px;
@@ -99,7 +103,7 @@
 	font-size:20px;
 	letter-spacing:0;
 }
-.e1_17 { 
+#details-state { 
 	color:rgba(0, 0, 0, 1);
 	width:41px;
 	height:19px;
@@ -111,7 +115,7 @@
 	font-size:16px;
 	letter-spacing:0;
 }
-.e1_18 { 
+#details-type { 
 	color:rgba(0, 0, 0, 1);
 	width:38px;
 	height:19px;
@@ -123,7 +127,7 @@
 	font-size:16px;
 	letter-spacing:0;
 }
-.e1_19 { 
+#details-url { 
 	color:rgba(0, 0, 0, 1);
 	width:370px;
 	height:19px;
@@ -135,15 +139,17 @@
 	font-size:16px;
 	letter-spacing:0;
 }
-.e1_20 { 
+#form-container { 
 	background-color:rgba(252.87500202655792, 140.13489961624146, 241.60094618797302, 1);
 	width:869px;
 	height:219px;
 	position:absolute;
 	left:503px;
 	top:320px;
+	border-top-left-radius: 50px;
+	border-top-right-radius: 50px;
 }
-.e1_21 { 
+#filter-form { 
 	color:rgba(0, 0, 0, 1);
 	width:248px;
 	height:57px;

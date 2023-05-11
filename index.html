@@ -5,26 +5,30 @@
         <link rel="stylesheet" type="text/css" href="./style.css"/>
     </head>
     <body>
-        <div class=e1_2>
-            <div class=e1_4><span  class="e1_5">Brewer Review</span></div>
-            <div class=e1_7>
-                <span  class="e1_8">List of breweries:</span>
-                <ul  class="e1_9">
+        <div id="header-container">
+            <div id="title-container">
+                <h1  class="headers" id="page-title">Brewer Review</h1>
+            </div>
+            <div id="image-container"></div>
+        </div>    
+            <div id="list-container">
+                <span  class="headers" id="list-header">List of breweries:</span>
+                <ul id="brewery-list">
 
                 </ul>
             </div>
-            <div class=e1_14>
-                <span  class="e1_15">Name</span>
-                <span  class="e1_16">Address</span>
-                <span  class="e1_17">State</span>
-                <span  class="e1_18">Type</span>
-                <span  class="e1_19">url: https://www.thisisafakeurltotakeupspace.gov</span>
+            <div class="inner-containers" id="brewery-details">
+                <span  class="headers" id="details-name">Name</span>
+                <span  class="details" id="details-address">Address</span>
+                <span  class="details" id="details-state">State</span>
+                <span  class="details" id="details-type">Type</span>
+                <span  class="details" id="details-url">url: https://www.thisisafakeurltotakeupspace.gov</span>
             </div>
-            <div class=e1_20>
-                <form class="e1_21" id="filter-form">
-                    <label></label>
+            <div id="form-container">
+                <form id="filter-form">
+                    <label>State</label>
                     <input/>
-                    <label></label>
+                    <label>Type</label>
                     <input/>
                     <input type="submit"/>
                 </form>
