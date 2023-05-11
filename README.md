@@ -1,0 +1,1 @@
+Brewer Review is a Webpage that lists all breweries in the brewery API. Users can filter breweries by state and type and view details such as address and name.
