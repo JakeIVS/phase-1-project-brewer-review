@@ -70,6 +70,9 @@
 	font-size:16px;
 	letter-spacing:0;
 }
+li {
+	list-style-type: square;
+}
 #brewery-details { 
 	background-color:rgba(138.0275934934616, 239.09332394599915, 252.87500202655792, 1);
 	width:869px;
@@ -149,13 +152,18 @@
 }
 #filter-form { 
 	color:rgba(0, 0, 0, 1);
-	width:248px;
 	height:57px;
-	position:absolute;
 	left:311px;
-	top:81px;
+	top: 0px;
 	font-family:Inter;
 	text-align:center;
 	font-size:16px;
 	letter-spacing:0;
+	margin-bottom: 0px;
+	padding: 20px;
+
 }
+#filter-header {
+	font-size: 40px;
+}
+
