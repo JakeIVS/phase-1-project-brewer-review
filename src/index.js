@@ -17,7 +17,7 @@ function testApi() {
     fetch('https://api.openbrewerydb.org/breweries')
     .then(r=>r.json())
     .then(data=>data.forEach(d=>{
-        console.log(d.state);
+        console.log(d.brewery_type);
     }))
 }
 
