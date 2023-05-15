@@ -193,6 +193,19 @@ li {
 	letter-spacing:0;
 
 }
+#details-favorite {
+	display: grid;
+	grid-area: type;
+	justify-self: left;
+	align-self: center;
+	margin: 1%;
+	width: 10%;
+	font-size: 150%;
+	text-align: center;
+	border-radius: 10px;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+}
 #form-container { 
 	background-image: url("./src/images/bb-taps.jpg");
 	background-position:bottom;

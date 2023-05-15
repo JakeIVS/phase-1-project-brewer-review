@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", initialize())
 const breweryList = document.querySelector('#brewery-list');
+let breweryInfo = {};
 function initialize() {
     fetch('https://api.openbrewerydb.org/v1/breweries?by_state=colorado&per_page=700')
     .then(r=>r.json())
@@ -8,6 +9,7 @@ function initialize() {
             listElement(brewery)
         })
         populateDetails(data[0]);
+        debugger
     })
 }
 function listElement(brewery){
@@ -26,7 +28,7 @@ function populateDetails(brewery) {
     let type = document.querySelector('#details-type')
     let url = document.querySelector('#details-url')
     let phone = document.querySelector('#phone-number')
-    let breweryInfo = {
+    breweryInfo = {
         name: brewery.name,
         address: brewery.street,
         state: brewery.state,
@@ -67,3 +69,5 @@ favBtn.addEventListener('click', ()=>{
         initialize()
     }
 })
+// add a favorite button to the details page that adds the current brewery to the json server
+
