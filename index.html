@@ -24,50 +24,56 @@
                     <li>testing</li>
                 </ul>
             </div>
-            <div class="inner-containers" id="brewery-details">
-                <span  class="headers" id="details-name">Name</span>
-                <span  class="details" id="details-address">Address</span>
-                <span  class="details" id="details-state">State</span>
-                <span  class="details" id="details-type">Type</span>
-                <span  class="details" id="details-url">url: https://www.thisisafakeurltotakeupspace.gov</span>
-            </div>
-            <div id="form-container">
-                <form id="filter-form">
-                    <p class="headers" id="filter-header">Filter Results</p>
-                    <label>State</label>
-                    <select id="state">
-                        <option value="Arizona">AZ</option>
-                        <option value="California">CA</option>
-                        <option value="Colorado">CO</option>
-                        <option value="Delaware">DE</option>
-                        <option value="Iowa">IA</option>
-                        <option value="Illinois">IL</option>
-                        <option value="Indiana">IN</option>
-                        <option value="Maryland">MD</option>
-                        <option value="Michigan">MI</option>
-                        <option value="Minnesota">MN</option>
-                        <option value="Mississippi">MS</option>
-                        <option value="North Carolina">NC</option>
-                        <option value="New York">NY</option>
-                        <option value="Oklahoma">OK</option>
-                        <option value="Oregon">OR</option>
-                        <option value="Texas">TX</option>
-                        <option value="Virginia">VA</option>
-                        <option value="Vermont">VT</option>
-                        <option value="Washington">WA</option>
-                        <option value="Wisconsin">WI</option>
-                    </select>
-                    <label>Type</label>
-                    <select>
-                        <option value="micro">Micro Brewery</option>
-                        <option value="large">Large Brewery</option>
-                        <option value="brewpub">Brew Pub</option>
-                        <option value="proprietor">Proprietor</option>
-                        <option value="contract">Contract</option>
-                    </select>
-                    <input>
-                    <input type="submit">
-                </form>
+            <div id="main-field">
+                <div class="inner-containers" id="brewery-details">
+                    <span  class="headers" id="details-name">Name</span>
+                    <span  class="details" id="details-address">Address</span>
+                    <span  class="details" id="details-state">State</span>
+                    <span  class="details" id="details-type">Type</span>
+                    <div id="contact-info">
+                        <span  class="details" id="details-url">url: <a href=placeholder>https://www.thisisafakeurltotakeupspace.gov</a></span>
+                        <span class="details" id="details-phone">Phone: (000) 000-0000</span>
+                    </div>
+                </div>
+                <div class="inner-containers" id="form-container">
+                    <form id="filter-form">
+                        <p class="headers" id="filter-header">Filter Results</p>
+                        <label class="form-part">State</label>
+                        <select class="form-part" id="state">
+                            <option value="null">-</option>
+                            <option  value="Arizona">AZ</option>
+                            <option value="California">CA</option>
+                            <option value="Colorado">CO</option>
+                            <option value="Delaware">DE</option>
+                            <option value="Iowa">IA</option>
+                            <option value="Illinois">IL</option>
+                            <option value="Indiana">IN</option>
+                            <option value="Maryland">MD</option>
+                            <option value="Michigan">MI</option>
+                            <option value="Minnesota">MN</option>
+                            <option value="Mississippi">MS</option>
+                            <option value="North Carolina">NC</option>
+                            <option value="New York">NY</option>
+                            <option value="Oklahoma">OK</option>
+                            <option value="Oregon">OR</option>
+                            <option value="Texas">TX</option>
+                            <option value="Virginia">VA</option>
+                            <option value="Vermont">VT</option>
+                            <option value="Washington">WA</option>
+                            <option value="Wisconsin">WI</option>
+                        </select>
+                        <label class="form-part">Type</label>
+                        <select class="form-part">
+                            <option value="null">-</option>
+                            <option value="micro">Micro Brewery</option>
+                            <option value="large">Large Brewery</option>
+                            <option value="brewpub">Brew Pub</option>
+                            <option value="proprietor">Proprietor</option>
+                            <option value="contract">Contract</option>
+                        </select>
+                        <input type="submit" class="form-part">
+                    </form>
+                </div>
             </div>
         </div>
     </body>

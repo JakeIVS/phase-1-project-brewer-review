@@ -1,4 +1,4 @@
-// const breweryList = document.querySelector('#brewery-list');
+const breweryList = document.querySelector('#brewery-list');
 
 
 function initialize() {
