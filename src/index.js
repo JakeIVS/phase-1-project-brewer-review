@@ -33,32 +33,19 @@ const breweryList = document.querySelector('#brewery-list');
 
 function initialize() {
     fetch('https://api.openbrewerydb.org/breweries')
+const breweryList = document.querySelector('#brewery-list');
+document.addEventListener("DOMContentLoaded", ()=>{
+    initialize()
+})
+
+function initialize() {
+    fetch('https://api.openbrewerydb.org/v1/breweries?by_state=colorado&per_page=700')
     .then(r=>r.json())
     .then(data=>{
         data.forEach(brewery => {
             let li = document.createElement('li');
-            li.textContent=`${brewery.name}, ${brewery.country.italics()}`;
+            li.textContent=`${brewery.name}, ${brewery.city}`;
             breweryList.append(li);
         })
     })
-}
-
-function testApi() {
-    fetch('https://api.openbrewerydb.org/breweries')
-    .then(r=>r.json())
-    .then(data=>data.forEach(d=>{
-        console.log(d.brewery_type);
-    }))
-}
-let imageContainer = document.getElementById('image-container')
-
-for (let i = 0; i < 3; i++) {
-
-let img1 = document.createElement('img');
-    img1.src = 'src/brew-bar-img-1.jpg' 
-    imageContainer.appendChild(img1);
-
-let img2 = document.createElement('img');
-    img2.src = 'src/brew-bar-img-2.jpg' 
-    imageContainer.appendChild(img2);
-}
+}}
