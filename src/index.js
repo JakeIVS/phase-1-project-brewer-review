@@ -28,3 +28,13 @@ function listElement(breweryName,state){
     li.textContent=`${breweryName}, ${state}`;
     document.querySelector("#brewery-list").appendChild(li);
 }
+
+function beerBarImg() {
+    const imageContainer = document.getElementById('image-container');
+
+        const img = document.createElement('img');
+        img.src = `src/image${i}.jpg`; 
+        imageContainer.appendChild(img);
+    }
+
+beerBarImg();
