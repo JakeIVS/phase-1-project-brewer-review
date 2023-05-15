@@ -163,7 +163,7 @@ li {
 	border-radius: 10px;
 }
 #details-url { 
-	color:rgba(0, 0, 0, 1);
+	color:white;
 	display: grid;
 	font-family:Inter;
 	text-align:center;
@@ -171,7 +171,7 @@ li {
 	letter-spacing:0;
 }
 #details-phone {
-	color:rgba(0, 0, 0, 1);
+	color:white;
 	display: grid;
 	font-family:Inter;
 	text-align:center;
