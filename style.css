@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+
+.headers {
+	font-family: 'Aboreto', cursive;
+}
 #header-container { 
 	overflow:hidden;
 }
@@ -17,15 +22,14 @@
 }
 #page-title { 
 	color:rgba(0, 0, 0, 1);
-	width:655px;
+	width:800px;
 	height:99px;
 	position:relative;
-	left:392px;
+	left:320px;
 	top:-15px;
-	font-family:Jacques Francois Shadow;
 	text-align:center;	
 	font-size:64px;
-	letter-spacing:0;
+	letter-spacing:20px;
 }
 #image-container { 
 	background-color:rgba(253.93750101327896, 87.82006680965424, 87.82006680965424, 1);
@@ -38,7 +42,7 @@
 #list-container { 
 	background-color:rgba(229.56164181232452, 250.75000405311584, 169.2562633752823, 1);
 	width:454px;
-	height:756px;
+	height:1220px;
 	position:absolute;
 	left:9px;
 	top: 276px;
@@ -47,7 +51,6 @@
 	color:rgba(0, 0, 0, 1);
 	width:131px;
 	height:19px;
-	font-family:Inter;
 	text-align:center;
 	position:relative;
 	margin-left: 10px;
@@ -89,7 +92,6 @@ li {
 	position:absolute;
 	left:20px;
 	top:350px;
-	font-family:Inter;
 	text-align:left;
 	font-size:40px;
 	letter-spacing:5px;
@@ -100,7 +102,8 @@ li {
 	font-family:Inter;
 	letter-spacing:0;
 	width:800px;
-
+	background-color: darkolivegreen;
+	padding: 4px;
 }
 #details-address { 
 	color:rgba(0, 0, 0, 1);
@@ -141,7 +144,8 @@ li {
 	letter-spacing:0;
 }
 #form-container { 
-	background-color:rgba(252.87500202655792, 140.13489961624146, 241.60094618797302, 1);
+	/* background-image: url("./src/images/bb-taps.jpg"); */
+	background-position:bottom;
 	width:869px;
 	height:219px;
 	position:absolute;
@@ -151,19 +155,25 @@ li {
 	border-top-right-radius: 50px;
 }
 #filter-form { 
-	color:rgba(0, 0, 0, 1);
-	height:57px;
+	color:rgb(255, 255, 255);
+	background-color: rgba(69, 69, 69, 0.69);
+	height:70px;
 	left:311px;
 	top: 0px;
 	font-family:Inter;
 	text-align:center;
 	font-size:16px;
-	letter-spacing:0;
-	margin-bottom: 0px;
+	letter-spacing:7px;
 	padding: 20px;
-
+	border-top-left-radius: 50px;
+	border-top-right-radius: 50px;
 }
 #filter-header {
 	font-size: 40px;
 }
-
+label {
+	background-color: rgba(69, 69, 69, 0.69);
+	padding: 10px;
+	border-radius: 10px;
+	letter-spacing: 3px;
+}
