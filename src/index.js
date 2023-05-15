@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", initialize)
 
 function initialize() {
-    console.log("initalize")
+    // console.log("initalize")
     fetch('https://api.openbrewerydb.org/breweries')
     .then(r=>r.json())
     .then(data=>{
@@ -16,25 +16,27 @@ function testApi() {
     fetch('https://api.openbrewerydb.org/breweries')
     .then(r=>r.json())
     .then(data=>data.forEach(d=>{
-        console.log(d.state);
+        // console.log(d.state);
     }))
 }
 
 testApi();
 
 function listElement(breweryName,state){
-    console.log ("creatingElement")
+    // console.log ("creatingElement")
     let li = document.createElement('li');
     li.textContent=`${breweryName}, ${state}`;
     document.querySelector("#brewery-list").appendChild(li);
+};
+let imageContainer = document.getElementById('image-container')
+
+for (let i = 0; i < 3; i++) {
+
+let img1 = document.createElement('img');
+    img1.src = 'src/brew-bar-img-1.jpg' 
+    imageContainer.appendChild(img1);
+
+let img2 = document.createElement('img');
+    img2.src = 'src/brew-bar-img-2.jpg' 
+    imageContainer.appendChild(img2);
 }
-
-function beerBarImg() {
-    const imageContainer = document.getElementById('image-container');
-
-        const img = document.createElement('img');
-        img.src = `src/image${i}.jpg`; 
-        imageContainer.appendChild(img);
-    }
-
-beerBarImg();
