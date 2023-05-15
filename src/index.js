@@ -41,3 +41,29 @@ function populateDetails(brewery) {
     url.href = breweryInfo.url;
     phone.textContent = `(${breweryInfo.phone.slice(0, 3)}) ${breweryInfo.phone.slice(3, 6)}-${breweryInfo.phone.slice(6)} `;
 }
+// add a favorite button that switches the list to your favorited breweries
+let favBtn = document.querySelector('#favorites-btn')
+favBtn.addEventListener('mouseenter', ()=> {
+    favBtn.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'
+});
+favBtn.addEventListener('mouseleave', ()=> {
+    favBtn.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
+});
+favBtn.addEventListener('click', ()=>{
+    if (favBtn.textContent === '☆') {
+        favBtn.textContent = '★'
+        fetch('http://localhost:3000/breweries')
+        .then(r=>r.json())
+        .then(data=>{
+            breweryList.innerHTML = ''
+            data.forEach(brewery=>{
+                listElement(brewery);
+            })
+            listElement(data[0]);
+        })
+    } else {
+        favBtn.textContent = '☆'
+        breweryList.innerHTML = ''
+        initialize()
+    }
+})

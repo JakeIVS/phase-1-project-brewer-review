@@ -81,6 +81,19 @@ body {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
+#favorites-btn {
+	display: grid;
+	grid-area: title;
+	justify-self: end;
+	width: 10%;
+	font-size: 150%;
+	text-align: center;
+	border-radius: 10px;
+	align-self: end;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+}
+
 #brewery-list { 
 	color:rgb(255, 255, 255);
 	background-color: rgba(69, 69, 69, .4);
