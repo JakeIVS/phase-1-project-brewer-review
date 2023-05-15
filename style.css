@@ -83,7 +83,7 @@ body {
 }
 #brewery-list { 
 	color:rgb(255, 255, 255);
-	background-color: rgba(69, 69, 69, .69);
+	background-color: rgba(69, 69, 69, .4);
 	border-radius: 15px;
 	padding-top: 4%;
 	display: grid;
@@ -117,7 +117,6 @@ li {
 .details {
 	display: grid;
 	text-align:left;
-	font-family:Inter;
 	letter-spacing:0;
 }
 #details-name { 
@@ -131,6 +130,7 @@ li {
 }
 #details-address { 
 	color:white;
+	font-family: 'Aboreto', cursive;
 	display: grid;
 	grid-area: address;
 	font-size:1.5em;
@@ -138,6 +138,7 @@ li {
 }
 #details-state { 
 	color:white;
+	font-family: 'Aboreto', cursive;
 	display: grid;
 	grid-area: state;
 	font-size:1em;
@@ -145,9 +146,9 @@ li {
 }
 #details-type { 
 	color:white;
+	font-family: 'Aboreto', cursive;
 	display: grid;
 	grid-area: type;
-	font-family:Inter;
 	text-align:right;
 	margin-right: 5px;
 	font-size:22px;
