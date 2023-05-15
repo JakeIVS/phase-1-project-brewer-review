@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Brewer Review</title>
-        <link rel="stylesheet" type="text/css" href="./style.css"/>
+        <link rel="stylesheet" type="text/css" href="./style.css">
     </head>
     <body>
-        <div id="header-container">
-            <div id="title-container">
-                <h1  class="headers" id="page-title">Brewer Review</h1>
-            </div>
-            <div id="image-container"></div>
-        </div>    
+        <div class="page">
+            <div id="header-container">
+                <div id="title-container">
+                    <h1  class="headers" id="page-title">Brewer Review</h1>
+                </div>
+                <div id="image-container"></div>
+            </div>    
             <div id="list-container">
                 <span  class="headers" id="list-header">List of breweries:</span>
                 <ul id="brewery-list">
@@ -57,8 +58,15 @@
                         <option value="Wisconsin">WI</option>
                     </select>
                     <label>Type</label>
-                    <input/>
-                    <input type="submit"/>
+                    <select>
+                        <option value="micro">Micro Brewery</option>
+                        <option value="large">Large Brewery</option>
+                        <option value="brewpub">Brew Pub</option>
+                        <option value="proprietor">Proprietor</option>
+                        <option value="contract">Contract</option>
+                    </select>
+                    <input>
+                    <input type="submit">
                 </form>
             </div>
         </div>
