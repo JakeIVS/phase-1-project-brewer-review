@@ -1,177 +1,211 @@
 @import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
 
+body {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+.page {
+	height: 100%;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 2fr 3fr 3fr;
+	grid-template-rows: 20% 1fr 1fr;
+	grid-template-areas: 
+		"header header header"
+		"sidebar main main"
+		"sidebar main main";
+	column-gap: 15px;
+	row-gap: 10px;
+	justify-items: stretch;
+	align-items: stretch;
+	background-color: #462a05;
+}
 .headers {
 	font-family: 'Aboreto', cursive;
 }
 #header-container { 
-	overflow:hidden;
-}
-#header-container { 
+	display: grid;
 	background-color:rgba(255, 255, 255, 1);
-	width:1440px;
-	height:1024px;
-	position:absolute;
+	grid-area: header;
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas: 
+		"title"
+		"image";
+	justify-items: stretch;
+	align-items: stretch;
 }
+
 #title-container { 
 	background-image:conic-gradient(#e0a951, #b05315,#744509, #e0a951);
-	width:1440px;
-	height:268px;
-	position:absolute;
-	left:0px;
-	top:0px;
+	grid-area: title;
+	display: grid;
+	place-items: center;
 }
 #page-title { 
 	color:rgba(0, 0, 0, 1);
-	width:800px;
-	height:99px;
-	position:relative;
-	left:320px;
-	top:-15px;
 	text-align:center;	
-	font-size:64px;
-	letter-spacing:20px;
+	font-size:250%;
+	letter-spacing: 70px;;
 }
-#image-container { 
-	background-color:rgba(253.93750101327896, 87.82006680965424, 87.82006680965424, 1);
-	width:1440px;
-	height:138px;
-	position:absolute;
-	left:0px;
-	top:130px;
+#images { 
+	display: grid;
+	grid-area: image;
+	background-image: url('./src/images/glasses.jpg');
+	background-size: 15%;
+	background-repeat: repeat-x;
+	background-color: #462a05;
+	overflow: hidden;
 }
 #list-container { 
-	background-color:rgba(229.56164181232452, 250.75000405311584, 169.2562633752823, 1);
-	width:454px;
-	height:1220px;
-	position:absolute;
-	left:9px;
-	top: 276px;
+	background-image: url("./src/images/beerglass.jpg");
+	background-position-y: center;
+	background-position-x: 29%;
+	display: grid;
+	grid-area: sidebar;
+	grid-template-rows: 40px auto;
+	grid-template-areas: "title" "list";
 }
 #list-header { 
-	color:rgba(0, 0, 0, 1);
-	width:131px;
-	height:19px;
-	text-align:center;
-	position:relative;
-	margin-left: 10px;
-	top: 20px;
-	font-size:27px;
+	display: grid;
+	grid-area: title;
+	justify-self: start;
+	align-self: flex-end;
+	color:rgb(255, 255, 255);
+	text-align:left;
+	font-size: 1.5vw;
 	letter-spacing:7px;
-	background-color: rgba(0, 0, 0, 0.144);
-	padding: 5px;
-	border-radius: 5px;
+	background-color: rgba(9, 73, 17, 0.616);
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 #brewery-list { 
-	color:rgba(0, 0, 0, 1);
-	width:229px;
-	height:674px;
-	position:absolute;
-	left:71px;
-	top:51px;
+	color:rgb(255, 255, 255);
+	background-color: rgba(69, 69, 69, .69);
+	border-radius: 15px;
+	padding-top: 4%;
+	display: grid;
+	grid-area: list;
 	font-family:Inter;
 	text-align:left;
-	font-size:16px;
+	font-size: 1fr;
 	letter-spacing:0;
-
+	overflow-wrap:normal;
 }
 li {
 	list-style-type: square;
-
+}
+#main-field {
+	display: grid;
+	grid-area: main;
+	grid-template-rows: 2fr 3fr;
+	grid-template-areas: "filter" "details";
+	row-gap: 20px;
 }
 #brewery-details { 
-	background-color:rgba(138.0275934934616, 239.09332394599915, 252.87500202655792, 1);
-	width:869px;
-	height:405px;
-	position:absolute;
-	left:503px;
-	top:575px;
+	background-image: url("./src/images/barrels.jpg");
+	background-position: bottom;
+	display: grid;
+	grid-template-rows: 15% 50% 7% 8% 20%;
+	grid-template-areas: "type" "info" "state" "address" "name";
+	align-items: end;
+	grid-area: details;
 	border-bottom-right-radius: 50px;
 }
-#details-name { 
-	color:rgba(0, 0, 0, 1);
-	width:800px;
-	height:45px;
-	position:absolute;
-	left:20px;
-	top:350px;
-	text-align:left;
-	font-size:40px;
-	letter-spacing:5px;
-}
 .details {
-	left:20px;
+	display: grid;
 	text-align:left;
 	font-family:Inter;
 	letter-spacing:0;
-	width:800px;
-	background-color: darkolivegreen;
-	padding: 4px;
+}
+#details-name { 
+	color:white;
+	display: grid;
+	grid-area: name;
+	text-align:left;
+	font-size: 3em;
+	letter-spacing:5px;
+	align-self: center;
 }
 #details-address { 
-	color:rgba(0, 0, 0, 1);
-	height:24px;
-	position:absolute;
-	top:323px;
-	font-size:20px;
+	color:white;
+	display: grid;
+	grid-area: address;
+	font-size:1.5em;
+	align-self: center;
 }
 #details-state { 
-	color:rgba(0, 0, 0, 1);
-	height:19px;
-	position:absolute;
-	top:300px;
-	font-size:16px;
+	color:white;
+	display: grid;
+	grid-area: state;
+	font-size:1em;
+	align-self: center;
 }
 #details-type { 
-	color:rgba(0, 0, 0, 1);
-	width:38px;
-	height:19px;
-	position:absolute;
-	left:807px;
-	top:10px;
+	color:white;
+	display: grid;
+	grid-area: type;
 	font-family:Inter;
 	text-align:right;
+	margin-right: 5px;
 	font-size:22px;
 	letter-spacing:0;
 }
+#contact-info {
+	display: grid;
+	grid-area: info;
+	align-self: center;
+	justify-self: center;
+	background-color: rgba(69, 69, 69, 0.69);
+	padding: 3%;
+	border-radius: 10px;
+}
 #details-url { 
 	color:rgba(0, 0, 0, 1);
-	width:370px;
-	height:19px;
-	position:absolute;
-	left:250px;
-	top:203px;
+	display: grid;
 	font-family:Inter;
 	text-align:center;
 	font-size:16px;
 	letter-spacing:0;
 }
+#details-phone {
+	color:rgba(0, 0, 0, 1);
+	display: grid;
+	font-family:Inter;
+	text-align:center;
+	font-size:16px;
+	letter-spacing:0;
+
+}
 #form-container { 
-	background-image: url("src/bb-taps.jpg");
+	background-image: url("./src/images/bb-taps.jpg");
 	background-position:bottom;
-	width:869px;
-	height:219px;
-	position:absolute;
-	left:503px;
-	top:320px;
+	display: grid;
+	grid-area: filter;
 	border-top-left-radius: 50px;
 	border-top-right-radius: 50px;
 }
 #filter-form { 
 	color:rgb(255, 255, 255);
 	background-color: rgba(69, 69, 69, 0.69);
-	height:70px;
-	left:311px;
+	height:30%;
 	top: 0px;
 	font-family:Inter;
 	text-align:center;
-	font-size:16px;
 	letter-spacing:7px;
-	padding: 20px;
+	padding-bottom: 5%;
 	border-top-left-radius: 50px;
 	border-top-right-radius: 50px;
 }
 #filter-header {
-	font-size: 40px;
+	font-size: 2.5em;
+	justify-self: center;
+	align-self: start;
+}
+.form-part {
+margin-top: 5%;
 }
 label {
 	background-color: rgba(69, 69, 69, 0.69);
@@ -179,12 +213,3 @@ label {
 	border-radius: 10px;
 	letter-spacing: 3px;
 }
-.image-row {
-	display: flex;
-  }
-  
-  .image-row img {
-	flex: 1;
-	max-width: 100%;
-	height: auto;
-  }

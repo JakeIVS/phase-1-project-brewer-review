@@ -1,13 +1,44 @@
-// const breweryList = document.querySelector('#brewery-list');
-document.addEventListener("DOMContentLoaded", initialize)
+// // const breweryList = document.querySelector('#brewery-list');
+// document.addEventListener("DOMContentLoaded", initialize)
+
+// function initialize() {
+//     // console.log("initalize")
+//     fetch('https://api.openbrewerydb.org/breweries')
+//     .then(r=>r.json())
+//     .then(data=>{
+//         data.forEach(brewery => {
+//             listElement(brewery.name, brewery.state)
+//         })
+//     })
+// }
+
+// function testApi() {
+//     fetch('https://api.openbrewerydb.org/breweries')
+//     .then(r=>r.json())
+//     .then(data=>data.forEach(d=>{
+//         // console.log(d.state);
+//     }))
+// }
+
+// testApi();
+
+// function listElement(breweryName,state){
+//     // console.log ("creatingElement")
+//     let li = document.createElement('li');
+//     li.textContent=`${breweryName}, ${state}`;
+//     document.querySelector("#brewery-list").appendChild(li);
+// };
+
+const breweryList = document.querySelector('#brewery-list');
 
 function initialize() {
-    // console.log("initalize")
     fetch('https://api.openbrewerydb.org/breweries')
     .then(r=>r.json())
     .then(data=>{
         data.forEach(brewery => {
-            listElement(brewery.name, brewery.state)
+            let li = document.createElement('li');
+            li.textContent=`${brewery.name}, ${brewery.country.italics()}`;
+            breweryList.append(li);
         })
     })
 }
@@ -16,18 +47,9 @@ function testApi() {
     fetch('https://api.openbrewerydb.org/breweries')
     .then(r=>r.json())
     .then(data=>data.forEach(d=>{
-        // console.log(d.state);
+        console.log(d.brewery_type);
     }))
 }
-
-testApi();
-
-function listElement(breweryName,state){
-    // console.log ("creatingElement")
-    let li = document.createElement('li');
-    li.textContent=`${breweryName}, ${state}`;
-    document.querySelector("#brewery-list").appendChild(li);
-};
 let imageContainer = document.getElementById('image-container')
 
 for (let i = 0; i < 3; i++) {
