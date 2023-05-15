@@ -20,5 +20,3 @@ function testApi() {
         console.log(d.brewery_type);
     }))
 }
-
-testApi();

@@ -21,6 +21,7 @@ body {
 	row-gap: 10px;
 	justify-items: stretch;
 	align-items: stretch;
+	background-color: #462a05;
 }
 .headers {
 	font-family: 'Aboreto', cursive;
@@ -36,6 +37,7 @@ body {
 	justify-items: stretch;
 	align-items: stretch;
 }
+
 #title-container { 
 	background-image:conic-gradient(#e0a951, #b05315,#744509, #e0a951);
 	grid-area: title;
@@ -46,15 +48,21 @@ body {
 	color:rgba(0, 0, 0, 1);
 	text-align:center;	
 	font-size:250%;
-	letter-spacing:20px;
+	letter-spacing: 70px;;
 }
-#image-container { 
-	background-color:rgba(253.93750101327896, 87.82006680965424, 87.82006680965424, 1);
+#images { 
 	display: grid;
 	grid-area: image;
+	background-image: url('./src/images/glasses.jpg');
+	background-size: 15%;
+	background-repeat: repeat-x;
+	background-color: #462a05;
+	overflow: hidden;
 }
 #list-container { 
-	background-color:rgba(229.56164181232452, 250.75000405311584, 169.2562633752823, 1);
+	background-image: url("./src/images/beerglass.jpg");
+	background-position-y: center;
+	background-position-x: 29%;
 	display: grid;
 	grid-area: sidebar;
 	grid-template-rows: 40px auto;
@@ -67,14 +75,17 @@ body {
 	align-self: flex-end;
 	color:rgb(255, 255, 255);
 	text-align:left;
-	font-size: 3fr;
+	font-size: 1.5vw;
 	letter-spacing:7px;
 	background-color: rgba(9, 73, 17, 0.616);
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
 #brewery-list { 
-	color:rgba(0, 0, 0, 1);
+	color:rgb(255, 255, 255);
+	background-color: rgba(69, 69, 69, .69);
+	border-radius: 15px;
+	padding-top: 4%;
 	display: grid;
 	grid-area: list;
 	font-family:Inter;
@@ -94,7 +105,8 @@ li {
 	row-gap: 20px;
 }
 #brewery-details { 
-	background-color:rgba(138.0275934934616, 239.09332394599915, 252.87500202655792, 1);
+	background-image: url("./src/images/barrels.jpg");
+	background-position: bottom;
 	display: grid;
 	grid-template-rows: 15% 50% 7% 8% 20%;
 	grid-template-areas: "type" "info" "state" "address" "name";
@@ -109,7 +121,7 @@ li {
 	letter-spacing:0;
 }
 #details-name { 
-	color:rgba(0, 0, 0, 1);
+	color:white;
 	display: grid;
 	grid-area: name;
 	text-align:left;
@@ -118,25 +130,26 @@ li {
 	align-self: center;
 }
 #details-address { 
-	color:rgba(0, 0, 0, 1);
+	color:white;
 	display: grid;
 	grid-area: address;
 	font-size:1.5em;
 	align-self: center;
 }
 #details-state { 
-	color:rgba(0, 0, 0, 1);
+	color:white;
 	display: grid;
 	grid-area: state;
 	font-size:1em;
 	align-self: center;
 }
 #details-type { 
-	color:rgba(0, 0, 0, 1);
+	color:white;
 	display: grid;
 	grid-area: type;
 	font-family:Inter;
 	text-align:right;
+	margin-right: 5px;
 	font-size:22px;
 	letter-spacing:0;
 }
@@ -145,7 +158,7 @@ li {
 	grid-area: info;
 	align-self: center;
 	justify-self: center;
-	background-color: rgba(105, 105, 105, 0.534);
+	background-color: rgba(69, 69, 69, 0.69);
 	padding: 3%;
 	border-radius: 10px;
 }
