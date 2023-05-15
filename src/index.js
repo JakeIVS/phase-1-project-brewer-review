@@ -22,12 +22,12 @@
 
 // testApi();
 
-// function listElement(breweryName,state){
-//     // console.log ("creatingElement")
-//     let li = document.createElement('li');
-//     li.textContent=`${breweryName}, ${state}`;
-//     document.querySelector("#brewery-list").appendChild(li);
-// };
+function listElement(breweryName,state){
+    // console.log ("creatingElement")
+    let li = document.createElement('li');
+    li.textContent=`${breweryName}, ${state}`;
+    document.querySelector("#brewery-list").appendChild(li);
+};
 
 const breweryList = document.querySelector('#brewery-list');
 
