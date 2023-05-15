@@ -1,27 +1,3 @@
-// // const breweryList = document.querySelector('#brewery-list');
-// document.addEventListener("DOMContentLoaded", initialize)
-
-// function initialize() {
-//     // console.log("initalize")
-//     fetch('https://api.openbrewerydb.org/breweries')
-//     .then(r=>r.json())
-//     .then(data=>{
-//         data.forEach(brewery => {
-//             listElement(brewery.name, brewery.state)
-//         })
-//     })
-// }
-
-// function testApi() {
-//     fetch('https://api.openbrewerydb.org/breweries')
-//     .then(r=>r.json())
-//     .then(data=>data.forEach(d=>{
-//         // console.log(d.state);
-//     }))
-// }
-
-// testApi();
-
 function listElement(breweryName,state){
     // console.log ("creatingElement")
     let li = document.createElement('li');
