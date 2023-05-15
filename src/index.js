@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
 })
 
 function initialize() {
-    fetch('https://api.openbrewerydb.org/breweries')
+    fetch('https://api.openbrewerydb.org/v1/breweries?by_state=colorado&per_page=700')
     .then(r=>r.json())
     .then(data=>{
         data.forEach(brewery => {
             let li = document.createElement('li');
-            li.textContent=`${brewery.name}, ${brewery.country}`;
+            li.textContent=`${brewery.name}, ${brewery.city}`;
             breweryList.append(li);
         })
     })
