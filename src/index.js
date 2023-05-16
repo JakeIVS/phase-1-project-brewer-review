@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", initialize())
 const breweryList = document.querySelector('#brewery-list');
 let breweryInfo = {};
+let breweries = {};
+let favoriteBreweries = {};
 function initialize() {
     fetch('https://api.openbrewerydb.org/v1/breweries?by_state=colorado&per_page=700')
     .then(r=>r.json())
     .then(data=>{
+        breweries = data;
         data.forEach(brewery => {
             listElement(brewery)
         })
@@ -42,6 +45,20 @@ function populateDetails(brewery) {
     type.textContent = breweryInfo.type;
     url.href = breweryInfo.url;
     phone.textContent = `(${breweryInfo.phone.slice(0, 3)}) ${breweryInfo.phone.slice(3, 6)}-${breweryInfo.phone.slice(6)} `;
+    fetch('http://localhost:3000/breweries')
+    .then(r=>r.json())
+    .then(data=>{
+        debugger
+        if (data.find(function(currentBrewery){
+            return currentBrewery.name === breweryInfo.name
+        })) {
+            favBtn.className = 'unfavorite'
+            favBtn.textContent = 'Unfavorite'
+        } else {
+            favBtn.className = 'favorite'
+            favBtn.textContent = 'Favorite'
+        }
+    })
 }
 // add a favorite button that switches the list to your favorited breweries
 let favSwap = document.querySelector('#favorites-btn')
@@ -58,6 +75,7 @@ favSwap.addEventListener('click', ()=>{
         .then(r=>r.json())
         .then(data=>{
             breweryList.innerHTML = ''
+            favoriteBreweries = data;
             data.forEach(brewery=>{
                 listElement(brewery);
             })
@@ -72,26 +90,54 @@ favSwap.addEventListener('click', ()=>{
 // add a favorite button to the details page that adds the current brewery to the json server
 let favBtn = document.querySelector('#details-favorite')
 favBtn.addEventListener('mouseenter', ()=> {
-    favBtn.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'
+    if (favBtn.textContent === 'Favorite') {
+        favBtn.className = 'favorite-mouseover'
+    } else {
+        favBtn.className = 'unfavorite-mouseover'
+    }
 });
 favBtn.addEventListener('mouseleave', ()=> {
-    favBtn.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
+    if (favBtn.textContent === 'Favorite') {
+        favBtn.className = 'favorite'
+    } else {
+        favBtn.className = 'unfavorite'
+    }
 });
 favBtn.addEventListener('click', ()=>{
-    fetch('http://localhost:3000/breweries',{
-        method: "POST",
-        headers:{
-            "content-type":"application/json",
-            "accept":"application/json"
-        },
-        body:JSON.stringify({
-            "name": breweryInfo.name,
-            "street": breweryInfo.street,
-            "state": breweryInfo.state,
-            "city":breweryInfo.city,
-            "url": breweryInfo.url,
-            "phone": breweryInfo.phone,
-            "brewery_type": breweryInfo.type
+    if (favBtn.textContent === 'Favorite') {
+        fetch('http://localhost:3000/breweries',{
+            method: "POST",
+            headers:{
+                "content-type":"application/json",
+                "accept":"application/json"
+            },
+            body:JSON.stringify({
+                "name": breweryInfo.name,
+                "street": breweryInfo.street,
+                "state": breweryInfo.state,
+                "city":breweryInfo.city,
+                "url": breweryInfo.url,
+                "phone": breweryInfo.phone,
+                "brewery_type": breweryInfo.type
+            })
         })
-    })
+        favBtn.className = 'unfavorite-mouseover'
+        favBtn.textContent = 'Unfavorite'
+    } else {
+        fetch ('http://localhost:3000/breweries')
+        .then(r=>r.json())
+        .then (data=>data.forEach(brewery=>{
+            if (brewery.name === breweryInfo.name) {
+                fetch(`http://localhost:3000/breweries/${brewery.id}`,{
+                    method:'DELETE',
+                    headers:{
+                        'content-type': 'application/json',
+                        'accepts': 'application/json'
+                    }
+                })
+            }
+        }))
+        favBtn.className = 'favorite-mouseover'
+        favBtn.textContent = 'Favorite'
+    }
 })
