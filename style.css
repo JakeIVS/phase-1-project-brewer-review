@@ -180,12 +180,19 @@ li {
 	border-radius: 10px;
 }
 #map {
-	background-color: aqua;
+	background-color: antiquewhite;
 	display: grid;
 	grid-area: info;
 	align-self: center;
 	justify-self: right;
-	margin-right: 20%;
+	margin-right: 15%;
+	width: 40%;
+	height: 100%;
+}
+.no-map {
+	display: grid;
+	align-self: center;
+	justify-self: center;
 }
 #details-url { 
 	color:white;

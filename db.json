@@ -1,34 +1,28 @@
 {
   "breweries": [
     {
-      "name": "Briar Common Brewery",
-      "street": "2298 N Clay St",
+      "name": "Alternation Brewing Company",
+      "street": "1539 S Broadway",
       "state": "Colorado",
       "city": "Denver",
-      "website_url": "http://www.briarcommon.com",
-      "phone": "7204703731",
-      "brewery_type": "brewpub",
+      "latitude": "39.68866374",
+      "longitude": "-104.9876117",
+      "website_url": "http://www.alternationbrewing.com",
+      "phone": "3038025340",
+      "brewery_type": "micro",
       "id": 1
     },
     {
-      "name": "Black Bottle Brewery",
-      "street": "1611 S College Ave Ste STE1609",
+      "name": "Blue Moon Brewery",
+      "street": "3750 Chestnut Pl",
       "state": "Colorado",
-      "city": "Fort Collins",
-      "website_url": "http://www.blackbottlebrewery.com",
-      "phone": "9704932337",
-      "brewery_type": "brewpub",
+      "city": "Denver",
+      "latitude": "39.7735561",
+      "longitude": "-104.9769417",
+      "website_url": null,
+      "phone": null,
+      "brewery_type": "large",
       "id": 2
-    },
-    {
-      "name": "Atrevida Beer Company",
-      "street": "204 Mount View Ln Unit 3",
-      "state": "Colorado",
-      "city": "Colorado Springs",
-      "website_url": "http://www.atrevidabeerco.com",
-      "phone": "7192664200",
-      "brewery_type": "micro",
-      "id": 3
     }
   ]
 }

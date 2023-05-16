@@ -43,6 +43,8 @@ function populateDetails(brewery) {
         street: brewery.street,
         state: brewery.state,
         city: brewery.city,
+        latitude: brewery.latitude,
+        longitude: brewery.longitude,
         url: brewery.website_url,
         phone: brewery.phone,
         type: brewery.brewery_type 
@@ -52,7 +54,16 @@ function populateDetails(brewery) {
     cityState.textContent = `${brewery.city}, ${breweryInfo.state}`;
     type.textContent = breweryInfo.type;
     url.href = breweryInfo.url;
-    phone.textContent = `(${breweryInfo.phone.slice(0, 3)}) ${breweryInfo.phone.slice(3, 6)}-${breweryInfo.phone.slice(6)} `;
+    if (breweryInfo.url === null) {
+        url.textContent = 'No Website Found'
+    } else {
+        url.textContent = 'Visit Website'
+    }
+    if (breweryInfo.phone === null) {
+        phone.textContent = 'N/A'
+    } else {
+        phone.textContent = `(${breweryInfo.phone.slice(0, 3)}) ${breweryInfo.phone.slice(3, 6)}-${breweryInfo.phone.slice(6)} `;
+    };
     fetch('http://localhost:3000/breweries')
     .then(r=>r.json())
     .then(data=>{
@@ -66,6 +77,15 @@ function populateDetails(brewery) {
             favBtn.textContent = 'Favorite'
         }
     })
+    debugger
+    if (brewery.latitude === null) {
+        map=document.getElementById('map');
+        map.style.height = '0px'
+    } else {
+        map=document.getElementById('map');
+        map.style.height = '100%'
+        getMap(brewery);
+    }
 }
 // added cityValues and typeValue to function- was only including city before also took out additional fetch
 // that was filtering data but not updating the left hand list with results 
@@ -78,12 +98,10 @@ function populateDetails(brewery) {
 
 // Clears existing list
   breweryList.innerHTML = '';
-  debugger  
 
 // Displays filtered results
   filteredList.forEach(brewery => {
     listElement(brewery);
-    debugger
   });
 }
 // sets up filter form  to search city and type and added a retrieve to pass it through beerFilter 
@@ -153,6 +171,8 @@ favBtn.addEventListener('click', ()=>{
                 "street": breweryInfo.street,
                 "state": breweryInfo.state,
                 "city":breweryInfo.city,
+                "latitude": breweryInfo.latitude,
+                "longitude": breweryInfo.longitude,
                 "website_url": breweryInfo.url,
                 "phone": breweryInfo.phone,
                 "brewery_type": breweryInfo.type
@@ -200,3 +220,24 @@ favBtn.addEventListener('click', ()=>{
 
   */
  
+  //Add a google map field showing the location of the brewery
+  //API key for google maps should be stored in a secure keys.js file
+  //set to the variable mapsAPIKey
+  let map;
+  async function getMap(brewery){
+    const position ={lat: parseFloat(brewery.latitude), lng: parseFloat(brewery.longitude)}
+    //@ts-ignore
+    const { Map } = await google.maps.importLibrary("maps");
+    const { Marker } = await google.maps.importLibrary("marker");
+    map = new Map(document.getElementById('map'), {
+        zoom: 15,
+        center: position,
+        mapId: `${brewery.name} map`,
+    });
+    const marker = new Marker({
+        map: map,
+        position: position,
+        title: brewery.name,
+    });
+}   
+  
