@@ -104,7 +104,7 @@ body {
 	grid-area: list;
 	font-family:Inter;
 	text-align:left;
-	font-size: 1fr;
+	font-size: 120%;
 	letter-spacing:0;
 	overflow-y: scroll;
 	align-content: start;
@@ -139,9 +139,9 @@ li {
 	display: grid;
 	grid-area: name;
 	text-align:left;
-	font-size: 3em;
+	font-size: 250%;
 	letter-spacing:5px;
-	align-self: center;
+	align-self:normal;
 	background-color: rgba(69, 69, 69, 0.69);
 }
 #details-street { 
