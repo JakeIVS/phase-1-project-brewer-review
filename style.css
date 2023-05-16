@@ -6,6 +6,7 @@ body {
 	right: 0;
 	top: 0;
 	bottom: 0;
+	background-color: #462a05;
 }
 .page {
 	height: 100%;
@@ -14,9 +15,9 @@ body {
 	grid-template-columns: 2fr 3fr 3fr;
 	grid-template-rows: 20% 1fr 1fr;
 	grid-template-areas: 
-		"header header header"
-		"sidebar main main"
-		"sidebar main main";
+	"header header header"
+	"sidebar main main"
+	"sidebar main main";
 	column-gap: 15px;
 	row-gap: 10px;
 	justify-items: stretch;
@@ -43,6 +44,11 @@ body {
 	grid-area: title;
 	display: grid;
 	place-items: center;
+}
+#play-button{
+	display: grid;
+	place-self: start;
+	background-color: rgba(0, 0, 0, 0.069);
 }
 #page-title { 
 	color:rgba(0, 0, 0, 1);
@@ -143,6 +149,7 @@ li {
 	letter-spacing:5px;
 	align-self:normal;
 	background-color: rgba(69, 69, 69, 0.69);
+	border-bottom-right-radius: 50px;
 }
 #details-street { 
 	color:white;
