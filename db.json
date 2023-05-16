@@ -1,0 +1,34 @@
+{
+  "breweries": [
+    {
+      "name": "Briar Common Brewery",
+      "street": "2298 N Clay St",
+      "state": "Colorado",
+      "city": "Denver",
+      "website_url": "http://www.briarcommon.com",
+      "phone": "7204703731",
+      "brewery_type": "brewpub",
+      "id": 1
+    },
+    {
+      "name": "Black Bottle Brewery",
+      "street": "1611 S College Ave Ste STE1609",
+      "state": "Colorado",
+      "city": "Fort Collins",
+      "website_url": "http://www.blackbottlebrewery.com",
+      "phone": "9704932337",
+      "brewery_type": "brewpub",
+      "id": 2
+    },
+    {
+      "name": "Atrevida Beer Company",
+      "street": "204 Mount View Ln Unit 3",
+      "state": "Colorado",
+      "city": "Colorado Springs",
+      "website_url": "http://www.atrevidabeerco.com",
+      "phone": "7192664200",
+      "brewery_type": "micro",
+      "id": 3
+    }
+  ]
+}

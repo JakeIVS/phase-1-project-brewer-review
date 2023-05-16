@@ -1,57 +1,76 @@
-document.addEventListener('DOMContentLoaded', initialize);
-let breweryList = document.querySelector('#brewery-list'); 
-let originalData = []; // this stores the original data from the API for filtering, I was missing earlier causing issues
+// trying to set it up so when the user visits the site, this polka songs plays once, 
+// leanred that most modern web browsers have implemented autoplay policies that restrict autoplaying media- makes sense
+// policies typically require some form of user interaction before allowing media to play automatically which is
+// why I created the 'play' button at top so when it it clicked, it palys once and disables.
 
+document.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('background-audio');
+    const playButton = document.getElementById('play-button');  
+document.addEventListener("DOMContentLoaded", initialize())
+const breweryList = document.querySelector('#brewery-list');
+let breweryInfo = {};
+let breweries = {};
+let favoriteBreweries = {};
 function initialize() {
-  fetch('https://api.openbrewerydb.org/v1/breweries?by_state=colorado&per_page=700')
-    .then(r => r.json())
-    .then(data => {
-      originalData = data; // this stores the original data for filtering
-      data.forEach(brewery => {
-        listElement(brewery.name, brewery.city, brewery.latitude, brewery.longitude, brewery.phone)
-        // had a cities.push here, but removed it- it was causing hicups 
-      });
-    });
+    fetch('https://api.openbrewerydb.org/v1/breweries?by_state=colorado&per_page=700')
+    .then(r=>r.json())
+    .then(data=>{
+        breweries = data;
+        data.forEach(brewery => {
+            listElement(brewery)
+        })
+        populateDetails(data[0]);
+    })
 }
-function listElement(breweryName, city, latitude, longitude, phone){
+function listElement(brewery){
     let li = document.createElement('li');
-    li.textContent = `${breweryName}, ${city}`;
-      // Add mouseover event listener
-  li.addEventListener('mouseover', () => {
-    li.style.color = 'orange';
-  });
-
-  // Add mouseout event listener
-  li.addEventListener('mouseout', () => {
-    li.style.color = '';
-  });
-
-  // Add click event listener
-  li.addEventListener('click', () => {
-    // Perform any action you want when a brewery is clicked
-    console.log(`Brewery clicked: ${breweryName}`);
-  });
-   // Add click event listener
-   li.addEventListener('click', () => {
-    // Populate contact information
-    const urlElement = document.getElementById('url');
-    urlElement.innerHTML = `<a href="https://maps.google.com/?q=${latitude},${longitude}">https://maps.google.com/?q=${latitude},${longitude}</a>`;
-
-    const phoneElement = document.getElementById('phone-number');
-    phoneElement.textContent = phone
-
-    // Perform any other actions you want with the latitude, longitude, and phone number data
-
-    // Example: Display a map overlay
-    displayMapOverlay(latitude, longitude);
-  });
+    li.textContent=`${brewery.name}, ${brewery.city}`;
     document.querySelector("#brewery-list").appendChild(li);
-  }
+    li.addEventListener('click',()=>populateDetails(brewery));
+    li.addEventListener('mouseenter', ()=>li.style.color = 'orange')
+    li.addEventListener('mouseleave', ()=>li.style.color = 'white')
+}
 
-  // added cityValues and typeValue to function- was only including city before also took out additional fetch
+function populateDetails(brewery) {
+    let name = document.querySelector('#details-name');
+    let street = document.querySelector('#details-street')
+    let cityState = document.querySelector('#details-city-state')
+    let type = document.querySelector('#details-type')
+    let url = document.querySelector('#details-url')
+    let phone = document.querySelector('#phone-number')
+    breweryInfo = {
+        name: brewery.name,
+        street: brewery.street,
+        state: brewery.state,
+        city: brewery.city,
+        url: brewery.website_url,
+        phone: brewery.phone,
+        type: brewery.brewery_type 
+    }
+    name.textContent = breweryInfo.name;
+    street.textContent = breweryInfo.street;
+    cityState.textContent = `${brewery.city}, ${breweryInfo.state}`;
+    type.textContent = breweryInfo.type;
+    url.href = breweryInfo.url;
+    phone.textContent = `(${breweryInfo.phone.slice(0, 3)}) ${breweryInfo.phone.slice(3, 6)}-${breweryInfo.phone.slice(6)} `;
+    fetch('http://localhost:3000/breweries')
+    .then(r=>r.json())
+    .then(data=>{
+        if (data.find(function(currentBrewery){
+            return currentBrewery.name === breweryInfo.name
+        })) {
+            favBtn.className = 'white-mouseoff'
+            favBtn.textContent = 'Unfavorite'
+        } else {
+            favBtn.className = 'mouseoff'
+            favBtn.textContent = 'Favorite'
+        }
+    })
+}
+// added cityValues and typeValue to function- was only including city before also took out additional fetch
 // that was filtering data but not updating the left hand list with results 
-  function brewFilter(cityValue, typeValue) { 
-    let filteredList = originalData.filter(function (brewery) {
+ function brewFilter(cityValue, typeValue) { 
+    let filteredList = breweries.filter(function (brewery) {
       let isCityMatched = cityValue === '' || brewery.city.toLowerCase().includes(cityValue.toLowerCase());
       let isTypeMatched = typeValue === 'null' || brewery.brewery_type === typeValue;
       return isCityMatched && isTypeMatched;
@@ -59,10 +78,12 @@ function listElement(breweryName, city, latitude, longitude, phone){
 
 // Clears existing list
   breweryList.innerHTML = '';
+  debugger  
 
 // Displays filtered results
   filteredList.forEach(brewery => {
-    listElement(brewery.name, brewery.city);
+    listElement(brewery);
+    debugger
   });
 }
 // sets up filter form  to search city and type and added a retrieve to pass it through beerFilter 
@@ -75,15 +96,89 @@ function listElement(breweryName, city, latitude, longitude, phone){
     brewFilter(cityValue, typeValue);
 });
 
-// trying to set it up so when the user visits the site, this polka songs plays once, 
-// leanred that most modern web browsers have implemented autoplay policies that restrict autoplaying media- makes sense
-// policies typically require some form of user interaction before allowing media to play automatically which is
-// why I created the 'play' button at top so when it it clicked, it palys once and disables.
+// Show the details of the selected brewery in the center of the page
+// add a favorite button that switches the list to your favorited breweries
+let favSwap = document.querySelector('#favorites-btn')
+favSwap.addEventListener('mouseenter', ()=> {
+    favSwap.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'
+});
+favSwap.addEventListener('mouseleave', ()=> {
+    favSwap.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
+});
+favSwap.addEventListener('click', ()=>{
+    if (favSwap.textContent === '☆') {
+        favSwap.textContent = '★'
+        fetch('http://localhost:3000/breweries')
+        .then(r=>r.json())
+        .then(data=>{
+            breweryList.innerHTML = ''
+            favoriteBreweries = data;
+            data.forEach(brewery=>{
+                listElement(brewery);
+            })
+            populateDetails(data[0]);
+        })
+    } else {
+        favSwap.textContent = '☆'
+        breweryList.innerHTML = ''
+        initialize()
+    }
+})
+// add a favorite button to the details page that adds the current brewery to the json server
+let favBtn = document.querySelector('#details-favorite')
+favBtn.addEventListener('mouseenter', ()=> {
+    if (favBtn.textContent === 'Favorite') {
+        favBtn.className = 'mouseover'
+    } else {
+        favBtn.className = 'white-mouseover'
+    }
+});
+favBtn.addEventListener('mouseleave', ()=> {
+    if (favBtn.textContent === 'Favorite') {
+        favBtn.className = 'mouseoff'
+    } else {
+        favBtn.className = 'white-mouseoff'
+    }
+});
+favBtn.addEventListener('click', ()=>{
+    if (favBtn.textContent === 'Favorite') {
+        fetch('http://localhost:3000/breweries',{
+            method: "POST",
+            headers:{
+                "content-type":"application/json",
+                "accept":"application/json"
+            },
+            body:JSON.stringify({
+                "name": breweryInfo.name,
+                "street": breweryInfo.street,
+                "state": breweryInfo.state,
+                "city":breweryInfo.city,
+                "website_url": breweryInfo.url,
+                "phone": breweryInfo.phone,
+                "brewery_type": breweryInfo.type
+            })
+        })
+        favBtn.className = 'unfavorite-mouseover'
+        favBtn.textContent = 'Unfavorite'
+    } else {
+        fetch ('http://localhost:3000/breweries')
+        .then(r=>r.json())
+        .then (data=>data.forEach(brewery=>{
+            if (brewery.name === breweryInfo.name) {
+                fetch(`http://localhost:3000/breweries/${brewery.id}`,{
+                    method:'DELETE',
+                    headers:{
+                        'content-type': 'application/json',
+                        'accepts': 'application/json'
+                    }
+                })
+            }
+        }))
+        favBtn.className = 'favorite-mouseover'
+        favBtn.textContent = 'Favorite'
+    }
+})
 
-document.addEventListener('DOMContentLoaded', () => {
-    const audio = document.getElementById('background-audio');
-    const playButton = document.getElementById('play-button');
-  
     playButton.addEventListener('click', () => {
       audio.play();
       playButton.disabled = true; // Disable the button after playing

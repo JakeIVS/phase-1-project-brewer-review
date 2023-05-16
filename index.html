@@ -17,37 +17,40 @@
                 </div>
     <div id="images">
                 </div>
-    </div>    
-    <div id="list-container">
-            <span  class="headers" id="list-header">List of breweries:</span>
+            </div>    
+            <div id="list-container">
+                <span  class="headers" id="list-header">List of breweries:</span>
+                <button id="favorites-btn" class="buttons">☆</button>
                 <ul id="brewery-list"></ul>
+            </div>
+            <div id="main-field">
+                <div class="inner-containers" id="brewery-details">
+                    <span  class="headers" id="details-name">Name</span>
+                    <span  class="details" id="details-street">Address</span>
+                    <span  class="details" id="details-city-state">City, State</span>
+                    <span  class="details" id="details-type">Type</span>
+                    <div id="contact-info">
+                        <a id="details-url" target="_blank">Visit Website</a>
+                        <span class="details" id="details-phone">Phone: <span id="phone-number">(000) 000-0000</span></span>
+                    </div>
+                    <div id="map"></div>
+                    <button id="details-favorite" class="mouseoff">Favorite</button>
                 </div>
-    <div id="main-field">
-            <div class="inner-containers" id="brewery-details">
-                <span  class="headers" id="details-name">Name</span>
-                <span  class="details" id="details-address">Address</span>
-                <span  class="details" id="details-state">State</span>
-                <span  class="details" id="details-type">Type</span>
-                <div id="contact-info">
-                    <span  class="details" id="details-url">url: <span id=url><a href=placeholder>https://www.thisisafakeurltotakeupspace.gov</a></span></span>
-                    <span class="details" id="details-phone">Phone: <span id="phone-number">(000) 000-0000</span></span>
-                </div>
-        </div>
-        <div class="inner-containers" id="form-container">
-            <form id="filter-form">
-                    <p class="headers" id="filter-header">Filter Results</p>
-                    <label class="form-part">City</label>
-                    <input type="text" class= "form-part" id = "city-field">
-                    <label class="form-part">Type</label>
-                    <select class="form-part">
-                        <option value="null">-</option>
-                        <option value="micro">Micro Brewery</option>
-                        <option value="large">Large Brewery</option>
-                        <option value="brewpub">Brew Pub</option>
-                        <option value="proprietor">Proprietor</option>
-                        <option value="contract">Contract</option>
+                <div class="inner-containers" id="form-container">
+                    <form id="filter-form">
+                        <p class="headers" id="filter-header">Filter Results</p>
+                        <label class="form-part">City</label>
+                        <input type="text" class="form-part" id="city-field">
+                        <label class="form-part">Type</label>
+                        <select class="form-part">
+                            <option value="null">-</option>
+                            <option value="micro">Micro Brewery</option>
+                            <option value="large">Large Brewery</option>
+                            <option value="brewpub">Brew Pub</option>
+                            <option value="proprietor">Proprietor</option>
+                            <option value="contract">Contract</option>
                         </select>
-                <input type="submit" class="form-part">
+                        <input type="submit" id="submit-button" class="mouseoff">
                     </form>
                 </div>
             </div>
