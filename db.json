@@ -1,44 +1,54 @@
 {
   "breweries": [
     {
-      "name": "Avant Garde Aleworks",
-      "street": "920 Dunraven St",
+      "name": "Alpine Dog Brewing Co",
+      "street": "1505 N Ogden St",
       "state": "Colorado",
-      "city": "Estes Park",
-      "url": "https://avantgardealeworks.com",
-      "phone": "9705912700",
-      "type": "micro",
+      "city": "Denver",
+      "url": "http://www.alpinedogbrewery.com",
+      "phone": "3038321245",
+      "brewery_type": "micro",
       "id": 1
     },
     {
-      "name": "Berthoud Brewing Company",
-      "street": "450 S 8th St Unit B",
+      "name": "Brew Pub and Kitchen",
+      "street": "117 W College Dr",
       "state": "Colorado",
-      "city": "Berthoud",
-      "url": "http://www.berthoudbrewing.com",
-      "phone": "9705329850",
-      "type": "micro",
+      "city": "Durango",
+      "url": "http://www.brewpubkitchen.com",
+      "phone": "9702595959",
+      "brewery_type": "brewpub",
       "id": 2
     },
     {
-      "name": "Black Sky Brewery",
-      "street": "490 Santa Fe Dr",
+      "name": "Call To Arms Brewing Company",
+      "street": "4526 Tennyson St",
       "state": "Colorado",
       "city": "Denver",
-      "url": "http://www.blackskybrewing.com",
-      "phone": "9702154536",
-      "type": "brewpub",
+      "url": "http://www.facebook.com/calltoarmsbrewing",
+      "phone": null,
+      "brewery_type": "micro",
       "id": 3
     },
     {
-      "name": "BRU Handbuilt Ales and Eats",
-      "street": "5290 Arapahoe Ave",
+      "name": "Cellar West Artisan Ales",
+      "street": "1001 Lee Hill Dr Ste 10",
       "state": "Colorado",
       "city": "Boulder",
-      "url": "http://www.bruboulder.com",
-      "phone": "7206385193",
-      "type": "brewpub",
+      "url": "http://www.cellarwest.com",
+      "phone": "2627198795",
+      "brewery_type": "micro",
       "id": 4
+    },
+    {
+      "name": "Bruz Beers",
+      "street": "1675 W 67th Ave Ste 100",
+      "state": "Colorado",
+      "city": "Denver",
+      "url": "http://www.bruzbeers.com",
+      "phone": "3036502337",
+      "brewery_type": "micro",
+      "id": 5
     },
     {
       "name": "Briar Common Brewery",
@@ -47,27 +57,17 @@
       "city": "Denver",
       "url": "http://www.briarcommon.com",
       "phone": "7204703731",
-      "type": "brewpub",
-      "id": 5
-    },
-    {
-      "name": "Coda Brewing Company",
-      "street": null,
-      "state": "Colorado",
-      "city": "Golden",
-      "url": "http://codabrewing.com",
-      "phone": "3038956475",
-      "type": "planning",
+      "brewery_type": "brewpub",
       "id": 6
     },
     {
-      "name": "Crooked Stave Artisan Beer Project",
-      "street": "1441 W 46th Ave Unit 17",
+      "name": "Dry Dock Brewing Co - North Dock",
+      "street": "2801 Tower Rd",
       "state": "Colorado",
-      "city": "Denver",
-      "url": "http://www.crookedstave.com",
-      "phone": "7205083292",
-      "type": "micro",
+      "city": "Aurora",
+      "url": "http://www.drydockbrewing.com",
+      "phone": "3034005606",
+      "brewery_type": "regional",
       "id": 7
     }
   ]

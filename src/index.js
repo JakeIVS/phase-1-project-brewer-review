@@ -9,7 +9,6 @@ function initialize() {
             listElement(brewery)
         })
         populateDetails(data[0]);
-        debugger
     })
 }
 function listElement(brewery){
@@ -92,7 +91,7 @@ favBtn.addEventListener('click', ()=>{
             "city":breweryInfo.city,
             "url": breweryInfo.url,
             "phone": breweryInfo.phone,
-            "type": breweryInfo.type
+            "brewery_type": breweryInfo.type
         })
     })
 })
