@@ -24,7 +24,7 @@ function initialize() {
 }
 function listElement(brewery){
     let li = document.createElement('li');
-    li.textContent=`${brewery.name}, ${brewery.city}`;
+    li.innerHTML=`${brewery.name}, ${brewery.city.italics()}`;
     document.querySelector("#brewery-list").appendChild(li);
     li.addEventListener('click',()=>populateDetails(brewery));
     li.addEventListener('mouseenter', ()=>li.style.color = 'orange')
