@@ -106,6 +106,7 @@ body {
 	font-size: 1fr;
 	letter-spacing:0;
 	overflow-y: scroll;
+	align-content: start;
 }
 li {
 	list-style-type: square;
@@ -141,7 +142,7 @@ li {
 	letter-spacing:5px;
 	align-self: center;
 }
-#details-address { 
+#details-street { 
 	color:white;
 	font-family: 'Aboreto', cursive;
 	display: grid;
@@ -149,7 +150,7 @@ li {
 	font-size:1.5em;
 	align-self: center;
 }
-#details-state { 
+#details-city-state { 
 	color:white;
 	font-family: 'Aboreto', cursive;
 	display: grid;

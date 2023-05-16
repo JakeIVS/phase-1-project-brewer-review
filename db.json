@@ -1,3 +1,74 @@
 {
-    "breweries": []
+  "breweries": [
+    {
+      "name": "Avant Garde Aleworks",
+      "street": "920 Dunraven St",
+      "state": "Colorado",
+      "city": "Estes Park",
+      "url": "https://avantgardealeworks.com",
+      "phone": "9705912700",
+      "type": "micro",
+      "id": 1
+    },
+    {
+      "name": "Berthoud Brewing Company",
+      "street": "450 S 8th St Unit B",
+      "state": "Colorado",
+      "city": "Berthoud",
+      "url": "http://www.berthoudbrewing.com",
+      "phone": "9705329850",
+      "type": "micro",
+      "id": 2
+    },
+    {
+      "name": "Black Sky Brewery",
+      "street": "490 Santa Fe Dr",
+      "state": "Colorado",
+      "city": "Denver",
+      "url": "http://www.blackskybrewing.com",
+      "phone": "9702154536",
+      "type": "brewpub",
+      "id": 3
+    },
+    {
+      "name": "BRU Handbuilt Ales and Eats",
+      "street": "5290 Arapahoe Ave",
+      "state": "Colorado",
+      "city": "Boulder",
+      "url": "http://www.bruboulder.com",
+      "phone": "7206385193",
+      "type": "brewpub",
+      "id": 4
+    },
+    {
+      "name": "Briar Common Brewery",
+      "street": "2298 N Clay St",
+      "state": "Colorado",
+      "city": "Denver",
+      "url": "http://www.briarcommon.com",
+      "phone": "7204703731",
+      "type": "brewpub",
+      "id": 5
+    },
+    {
+      "name": "Coda Brewing Company",
+      "street": null,
+      "state": "Colorado",
+      "city": "Golden",
+      "url": "http://codabrewing.com",
+      "phone": "3038956475",
+      "type": "planning",
+      "id": 6
+    },
+    {
+      "name": "Crooked Stave Artisan Beer Project",
+      "street": "1441 W 46th Ave Unit 17",
+      "state": "Colorado",
+      "city": "Denver",
+      "url": "http://www.crookedstave.com",
+      "phone": "7205083292",
+      "type": "micro",
+      "id": 7
+    }
+  ]
 }
