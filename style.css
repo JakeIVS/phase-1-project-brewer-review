@@ -85,15 +85,16 @@ body {
 	display: grid;
 	grid-area: title;
 	justify-self: end;
+	align-self: end;
 	width: 10%;
 	font-size: 150%;
+}
+.buttons {
 	text-align: center;
 	border-radius: 10px;
-	align-self: end;
 	background-color: rgba(0, 0, 0, 0.5);
 	color: white;
 }
-
 #brewery-list { 
 	color:rgb(255, 255, 255);
 	background-color: rgba(69, 69, 69, .4);
@@ -172,10 +173,19 @@ li {
 	display: grid;
 	grid-area: info;
 	align-self: center;
-	justify-self: center;
+	justify-self: left;
+	margin-left: 20%;
 	background-color: rgba(69, 69, 69, 0.69);
 	padding: 3%;
 	border-radius: 10px;
+}
+#map {
+	background-color: aqua;
+	display: grid;
+	grid-area: info;
+	align-self: center;
+	justify-self: right;
+	margin-right: 20%;
 }
 #details-url { 
 	color:white;
@@ -194,47 +204,25 @@ li {
 	letter-spacing:0;
 
 }
-.favorite {
-	display: grid;
-	grid-area: type;
-	justify-self: left;
-	align-self: center;
-	margin: 1%;
-	width: 10%;
-	font-size: 150%;
-	text-align: center;
-	border-radius: 10px;
+.mouseoff {
 	background-color: rgba(0, 0, 0, 0.5);
 	color: white;
 }
-.favorite-mouseover {
-	display: grid;
-	grid-area: type;
-	justify-self: left;
-	align-self: center;
-	margin: 1%;
-	width: 10%;
-	font-size: 150%;
-	text-align: center;
-	border-radius: 10px;
+.mouseover {
 	background-color: rgba(0, 0, 0, 0.7);
 	color: white;
 }
-.unfavorite {
-	display: grid;
-	grid-area: type;
-	justify-self: left;
-	align-self: center;
-	margin: 1%;
-	width: 10%;
-	font-size: 150%;
-	text-align: center;
-	border-radius: 10px;
+.white-mouseoff {
 	background-color: rgba(200, 200, 200, 0.5);
-	border-color: white;
+	border-color: whitesmoke;
 	color: black;
 }
-.unfavorite-mouseover {
+.white-mouseover {
+	background-color: rgba(200, 200, 200, 0.7);
+	border-color: whitesmoke;
+	color: black;
+}
+#details-favorite {
 	display: grid;
 	grid-area: type;
 	justify-self: left;
@@ -244,9 +232,10 @@ li {
 	font-size: 150%;
 	text-align: center;
 	border-radius: 10px;
-	background-color: rgba(200, 200, 200, 0.7);
-	border-color: white;
-	color: black;
+}
+#submit-button {
+	padding: .5%;
+	border-radius: 10px;
 }
 #form-container { 
 	background-image: url("./src/images/bb-taps.jpg");

@@ -9,6 +9,16 @@
       "phone": "7204703731",
       "brewery_type": "brewpub",
       "id": 1
+    },
+    {
+      "name": "Anheuser-Busch Inc - Fort Collins",
+      "street": "2351 Busch Dr",
+      "state": "Colorado",
+      "city": "Fort Collins",
+      "website_url": null,
+      "phone": "9704904500",
+      "brewery_type": "large",
+      "id": 2
     }
   ]
 }

@@ -16,7 +16,7 @@
             </div>    
             <div id="list-container">
                 <span  class="headers" id="list-header">List of breweries:</span>
-                <button id="favorites-btn">☆</button>
+                <button id="favorites-btn" class="buttons">☆</button>
                 <ul id="brewery-list"></ul>
             </div>
             <div id="main-field">
@@ -29,7 +29,8 @@
                         <a id="details-url" target="_blank">Visit Website</a>
                         <span class="details" id="details-phone">Phone: <span id="phone-number">(000) 000-0000</span></span>
                     </div>
-                    <button id="details-favorite" class="favorite">Favorite</button>
+                    <div id="map"></div>
+                    <button id="details-favorite" class="mouseoff">Favorite</button>
                 </div>
                 <div class="inner-containers" id="form-container">
                     <form id="filter-form">
@@ -45,7 +46,7 @@
                             <option value="proprietor">Proprietor</option>
                             <option value="contract">Contract</option>
                         </select>
-                        <input type="submit" class="form-part">
+                        <input type="submit" id="submit-button" class="mouseoff">
                     </form>
                 </div>
             </div>

@@ -52,10 +52,10 @@ function populateDetails(brewery) {
         if (data.find(function(currentBrewery){
             return currentBrewery.name === breweryInfo.name
         })) {
-            favBtn.className = 'unfavorite'
+            favBtn.className = 'white-mouseoff'
             favBtn.textContent = 'Unfavorite'
         } else {
-            favBtn.className = 'favorite'
+            favBtn.className = 'mouseoff'
             favBtn.textContent = 'Favorite'
         }
     })
@@ -91,16 +91,16 @@ favSwap.addEventListener('click', ()=>{
 let favBtn = document.querySelector('#details-favorite')
 favBtn.addEventListener('mouseenter', ()=> {
     if (favBtn.textContent === 'Favorite') {
-        favBtn.className = 'favorite-mouseover'
+        favBtn.className = 'mouseover'
     } else {
-        favBtn.className = 'unfavorite-mouseover'
+        favBtn.className = 'white-mouseover'
     }
 });
 favBtn.addEventListener('mouseleave', ()=> {
     if (favBtn.textContent === 'Favorite') {
-        favBtn.className = 'favorite'
+        favBtn.className = 'mouseoff'
     } else {
-        favBtn.className = 'unfavorite'
+        favBtn.className = 'white-mouseoff'
     }
 });
 favBtn.addEventListener('click', ()=>{
