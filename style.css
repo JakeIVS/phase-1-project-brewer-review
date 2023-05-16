@@ -189,10 +189,17 @@ li {
 	width: 40%;
 	height: 100%;
 }
-.no-map {
+#no-map {
 	display: grid;
+	grid-area: info;
 	align-self: center;
-	justify-self: center;
+	justify-self: right;
+	margin-right: 28%;
+	font-size: 400%;
+	color: white;
+	background-color: rgba(69, 69, 69, 0.69);
+	border-radius: 10px;
+	padding: 1%;
 }
 #details-url { 
 	color:white;
