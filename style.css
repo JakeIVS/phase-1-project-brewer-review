@@ -142,6 +142,7 @@ li {
 	font-size: 3em;
 	letter-spacing:5px;
 	align-self: center;
+	background-color: rgba(69, 69, 69, 0.69);
 }
 #details-street { 
 	color:white;
