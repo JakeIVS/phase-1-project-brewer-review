@@ -240,4 +240,8 @@ favBtn.addEventListener('click', ()=>{
         title: brewery.name,
     });
 }   
-  
+// add interactivity to the form submit button so it is
+// uniform with the other buttons on the page
+submitBtn = document.getElementById('submit-button');
+submitBtn.addEventListener('mouseenter', ()=>submitBtn.className = 'mouseover');
+submitBtn.addEventListener('mouseleave', ()=>submitBtn.className = 'mouseoff');
