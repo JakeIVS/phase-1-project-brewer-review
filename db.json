@@ -23,6 +23,78 @@
       "phone": null,
       "brewery_type": "large",
       "id": 2
+    },
+    {
+      "name": "Atom Brewing Company",
+      "street": "654 Moffat St",
+      "state": "Colorado",
+      "city": "Erie",
+      "latitude": "40.0488359",
+      "longitude": "-105.0542327",
+      "website_url": "http://www.atombrewingcompany.com",
+      "phone": "8634120917",
+      "brewery_type": "micro",
+      "id": 3
+    },
+    {
+      "name": "Bootstrap Brewing Co",
+      "street": "6778 N 79th St",
+      "state": "Colorado",
+      "city": "Niwot",
+      "latitude": "40.09681247",
+      "longitude": "-105.1691581",
+      "website_url": "http://www.bootstrapbrewing.com",
+      "phone": "3036524186",
+      "brewery_type": "micro",
+      "id": 4
+    },
+    {
+      "name": "Castle Rock Beer Company",
+      "street": "514 Perry St Ste C106",
+      "state": "Colorado",
+      "city": "Castle Rock",
+      "latitude": null,
+      "longitude": null,
+      "website_url": "http://www.castlerockbeerco.com",
+      "phone": "7203289008",
+      "brewery_type": "micro",
+      "id": 5
+    },
+    {
+      "name": "Chain Reaction Brewing Company",
+      "street": "902 S Lipan St",
+      "state": "Colorado",
+      "city": "Denver",
+      "latitude": "39.69879376",
+      "longitude": "-105.001629",
+      "website_url": "http://www.chainreactionbrewingco.com",
+      "phone": "3039220960",
+      "brewery_type": "micro",
+      "id": 6
+    },
+    {
+      "name": "Great Divide Brewing Co - RiNo Barrel Bar",
+      "street": "1812 35th St",
+      "state": "Colorado",
+      "city": "Denver",
+      "latitude": "39.7703322",
+      "longitude": "-104.979247",
+      "website_url": "http://greatdivide.com/",
+      "phone": "3032969460",
+      "brewery_type": "micro",
+      "id": 7
+    },
+    {
+      "name": "Hogshead Brewery",
+      "street": "4460 W 29th Ave",
+      "state": "Colorado",
+      "city": "Denver",
+      "latitude": "39.758232",
+      "longitude": "-105.04506",
+      "website_url": "http://www.hogsheadbrewery.com",
+      "phone": "3038869655",
+      "brewery_type": "micro",
+      "id": 8
     }
   ]
 }
