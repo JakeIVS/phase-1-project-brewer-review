@@ -8,14 +8,43 @@ function initialize() {
     .then(data => {
       originalData = data; // this stores the original data for filtering
       data.forEach(brewery => {
-        listElement(brewery.name, brewery.city);
+        listElement(brewery.name, brewery.city, brewery.latitude, brewery.longitude, brewery.phone)
         // had a cities.push here, but removed it- it was causing hicups 
       });
     });
 }
-function listElement(breweryName, city) {
+function listElement(breweryName, city, latitude, longitude, phone){
     let li = document.createElement('li');
     li.textContent = `${breweryName}, ${city}`;
+      // Add mouseover event listener
+  li.addEventListener('mouseover', () => {
+    li.style.color = 'orange';
+  });
+
+  // Add mouseout event listener
+  li.addEventListener('mouseout', () => {
+    li.style.color = '';
+  });
+
+  // Add click event listener
+  li.addEventListener('click', () => {
+    // Perform any action you want when a brewery is clicked
+    console.log(`Brewery clicked: ${breweryName}`);
+  });
+   // Add click event listener
+   li.addEventListener('click', () => {
+    // Populate contact information
+    const urlElement = document.getElementById('url');
+    urlElement.innerHTML = `<a href="https://maps.google.com/?q=${latitude},${longitude}">https://maps.google.com/?q=${latitude},${longitude}</a>`;
+
+    const phoneElement = document.getElementById('phone-number');
+    phoneElement.textContent = phone
+
+    // Perform any other actions you want with the latitude, longitude, and phone number data
+
+    // Example: Display a map overlay
+    displayMapOverlay(latitude, longitude);
+  });
     document.querySelector("#brewery-list").appendChild(li);
   }
 

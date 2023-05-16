@@ -81,9 +81,22 @@ body {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
+#favorites-btn {
+	display: grid;
+	grid-area: title;
+	justify-self: end;
+	width: 10%;
+	font-size: 150%;
+	text-align: center;
+	border-radius: 10px;
+	align-self: end;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+}
+
 #brewery-list { 
 	color:rgb(255, 255, 255);
-	background-color: rgba(69, 69, 69, .69);
+	background-color: rgba(69, 69, 69, .4);
 	border-radius: 15px;
 	padding-top: 4%;
 	display: grid;
@@ -93,6 +106,7 @@ body {
 	font-size: 1fr;
 	letter-spacing:0;
 	overflow-y: scroll;
+	align-content: start;
 }
 li {
 	list-style-type: square;
@@ -117,7 +131,6 @@ li {
 .details {
 	display: grid;
 	text-align:left;
-	font-family:Inter;
 	letter-spacing:0;
 }
 #details-name { 
@@ -129,15 +142,17 @@ li {
 	letter-spacing:5px;
 	align-self: center;
 }
-#details-address { 
+#details-street { 
 	color:white;
+	font-family: 'Aboreto', cursive;
 	display: grid;
 	grid-area: address;
 	font-size:1.5em;
 	align-self: center;
 }
-#details-state { 
+#details-city-state { 
 	color:white;
+	font-family: 'Aboreto', cursive;
 	display: grid;
 	grid-area: state;
 	font-size:1em;
@@ -145,9 +160,9 @@ li {
 }
 #details-type { 
 	color:white;
+	font-family: 'Aboreto', cursive;
 	display: grid;
 	grid-area: type;
-	font-family:Inter;
 	text-align:right;
 	margin-right: 5px;
 	font-size:22px;
@@ -178,6 +193,60 @@ li {
 	font-size:16px;
 	letter-spacing:0;
 
+}
+.favorite {
+	display: grid;
+	grid-area: type;
+	justify-self: left;
+	align-self: center;
+	margin: 1%;
+	width: 10%;
+	font-size: 150%;
+	text-align: center;
+	border-radius: 10px;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+}
+.favorite-mouseover {
+	display: grid;
+	grid-area: type;
+	justify-self: left;
+	align-self: center;
+	margin: 1%;
+	width: 10%;
+	font-size: 150%;
+	text-align: center;
+	border-radius: 10px;
+	background-color: rgba(0, 0, 0, 0.7);
+	color: white;
+}
+.unfavorite {
+	display: grid;
+	grid-area: type;
+	justify-self: left;
+	align-self: center;
+	margin: 1%;
+	width: 10%;
+	font-size: 150%;
+	text-align: center;
+	border-radius: 10px;
+	background-color: rgba(200, 200, 200, 0.5);
+	border-color: white;
+	color: black;
+}
+.unfavorite-mouseover {
+	display: grid;
+	grid-area: type;
+	justify-self: left;
+	align-self: center;
+	margin: 1%;
+	width: 10%;
+	font-size: 150%;
+	text-align: center;
+	border-radius: 10px;
+	background-color: rgba(200, 200, 200, 0.7);
+	border-color: white;
+	color: black;
 }
 #form-container { 
 	background-image: url("./src/images/bb-taps.jpg");
