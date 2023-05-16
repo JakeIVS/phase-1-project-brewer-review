@@ -116,7 +116,7 @@ favBtn.addEventListener('click', ()=>{
                 "street": breweryInfo.street,
                 "state": breweryInfo.state,
                 "city":breweryInfo.city,
-                "url": breweryInfo.url,
+                "website_url": breweryInfo.url,
                 "phone": breweryInfo.phone,
                 "brewery_type": breweryInfo.type
             })

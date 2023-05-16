@@ -1,74 +1,14 @@
 {
   "breweries": [
     {
-      "name": "Brew Pub and Kitchen",
-      "street": "117 W College Dr",
-      "state": "Colorado",
-      "city": "Durango",
-      "url": "http://www.brewpubkitchen.com",
-      "phone": "9702595959",
-      "brewery_type": "brewpub",
-      "id": 2
-    },
-    {
-      "name": "Call To Arms Brewing Company",
-      "street": "4526 Tennyson St",
-      "state": "Colorado",
-      "city": "Denver",
-      "url": "http://www.facebook.com/calltoarmsbrewing",
-      "phone": null,
-      "brewery_type": "micro",
-      "id": 3
-    },
-    {
-      "name": "Cellar West Artisan Ales",
-      "street": "1001 Lee Hill Dr Ste 10",
-      "state": "Colorado",
-      "city": "Boulder",
-      "url": "http://www.cellarwest.com",
-      "phone": "2627198795",
-      "brewery_type": "micro",
-      "id": 4
-    },
-    {
       "name": "Briar Common Brewery",
       "street": "2298 N Clay St",
       "state": "Colorado",
       "city": "Denver",
-      "url": "http://www.briarcommon.com",
+      "website_url": "http://www.briarcommon.com",
       "phone": "7204703731",
       "brewery_type": "brewpub",
-      "id": 6
-    },
-    {
-      "name": "Dry Dock Brewing Co - North Dock",
-      "street": "2801 Tower Rd",
-      "state": "Colorado",
-      "city": "Aurora",
-      "url": "http://www.drydockbrewing.com",
-      "phone": "3034005606",
-      "brewery_type": "regional",
-      "id": 7
-    },
-    {
-      "name": "10 Barrel Brewing Co - Denver",
-      "street": "2620 Walnut St",
-      "state": "Colorado",
-      "city": "Denver",
-      "url": null,
-      "phone": "7205738992",
-      "brewery_type": "large",
-      "id": 8
-    },
-    {
-      "name": "Black Sky Brewery",
-      "street": "490 Santa Fe Dr",
-      "state": "Colorado",
-      "city": "Denver",
-      "url": "http://www.blackskybrewing.com",
-      "phone": "9702154536",
-      "brewery_type": "brewpub",
-      "id": 9
+      "id": 1
     }
   ]
 }
