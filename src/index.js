@@ -6,11 +6,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('background-audio');
     const playButton = document.getElementById('play-button');  
+    playButton.addEventListener('click', () => {
+        audio.play();
+        playButton.disabled = true; // Disable the button after playing
+        playButton.remove();
+    });
+    });
 document.addEventListener("DOMContentLoaded", initialize())
 const breweryList = document.querySelector('#brewery-list');
 let breweryInfo = {};
 let breweries = {};
-let favoriteBreweries = {};
 function initialize() {
     fetch('https://api.openbrewerydb.org/v1/breweries?by_state=colorado&per_page=700')
     .then(r=>r.json())
@@ -25,6 +30,7 @@ function initialize() {
 function listElement(brewery){
     let li = document.createElement('li');
     li.innerHTML=`${brewery.name}, ${brewery.city.italics()}`;
+    li.id = brewery.name;
     document.querySelector("#brewery-list").appendChild(li);
     li.addEventListener('click',()=>populateDetails(brewery));
     li.addEventListener('mouseenter', ()=>li.style.color = 'orange')
@@ -43,6 +49,8 @@ function populateDetails(brewery) {
         street: brewery.street,
         state: brewery.state,
         city: brewery.city,
+        latitude: brewery.latitude,
+        longitude: brewery.longitude,
         url: brewery.website_url,
         phone: brewery.phone,
         type: brewery.brewery_type 
@@ -52,7 +60,16 @@ function populateDetails(brewery) {
     cityState.textContent = `${brewery.city}, ${breweryInfo.state}`;
     type.textContent = breweryInfo.type;
     url.href = breweryInfo.url;
-    phone.textContent = `(${breweryInfo.phone.slice(0, 3)}) ${breweryInfo.phone.slice(3, 6)}-${breweryInfo.phone.slice(6)} `;
+    if (breweryInfo.url === null) {
+        url.textContent = 'No Website Found'
+    } else {
+        url.textContent = 'Visit Website'
+    }
+    if (breweryInfo.phone === null) {
+        phone.textContent = 'N/A'
+    } else {
+        phone.textContent = `(${breweryInfo.phone.slice(0, 3)}) ${breweryInfo.phone.slice(3, 6)}-${breweryInfo.phone.slice(6)} `;
+    };
     fetch('http://localhost:3000/breweries')
     .then(r=>r.json())
     .then(data=>{
@@ -66,34 +83,42 @@ function populateDetails(brewery) {
             favBtn.textContent = 'Favorite'
         }
     })
+    if (brewery.latitude === null) {
+        map=document.getElementById('map');
+        map.style.height = '0px'
+    } else {
+        map=document.getElementById('map');
+        map.style.height = '100%'
+        getMap(brewery);
+    }
 }
 // added cityValues and typeValue to function- was only including city before also took out additional fetch
 // that was filtering data but not updating the left hand list with results 
- function brewFilter(cityValue, typeValue) { 
+function brewFilter(cityValue, typeValue) { 
     let filteredList = breweries.filter(function (brewery) {
-      let isCityMatched = cityValue === '' || brewery.city.toLowerCase().includes(cityValue.toLowerCase());
-      let isTypeMatched = typeValue === 'null' || brewery.brewery_type === typeValue;
-      return isCityMatched && isTypeMatched;
+        let isCityMatched = cityValue === '' || brewery.city.toLowerCase().includes(cityValue.toLowerCase());
+        let isTypeMatched = typeValue === 'null' || brewery.brewery_type === typeValue;
+        return isCityMatched && isTypeMatched;
     })
 
 // Clears existing list
   breweryList.innerHTML = '';
-//   debugger  
+  debugger  
 
 // Displays filtered results
   filteredList.forEach(brewery => {
     listElement(brewery);
-    // debugger
+    debugger
   });
 }
 // sets up filter form  to search city and type and added a retrieve to pass it through beerFilter 
-    let form = document.querySelector("#filter-form");
-        form.addEventListener('submit', (e) => {
-        e.preventDefault();
+let form = document.querySelector("#filter-form");
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
     let cityValue = form.querySelector("#city-field").value;
     let typeValue = form.querySelector("select").value;
-    
     brewFilter(cityValue, typeValue);
+    form.reset();
 });
 
 // Show the details of the selected brewery in the center of the page
@@ -153,6 +178,8 @@ favBtn.addEventListener('click', ()=>{
                 "street": breweryInfo.street,
                 "state": breweryInfo.state,
                 "city":breweryInfo.city,
+                "latitude": breweryInfo.latitude,
+                "longitude": breweryInfo.longitude,
                 "website_url": breweryInfo.url,
                 "phone": breweryInfo.phone,
                 "brewery_type": breweryInfo.type
@@ -174,21 +201,95 @@ favBtn.addEventListener('click', ()=>{
                 })
             }
         }))
+        if (favSwap.textContent === '★') {
+            breweryLi = document.getElementById(breweryInfo.name)
+            breweryLi.remove();
+        }
         favBtn.className = 'favorite-mouseover'
         favBtn.textContent = 'Favorite'
     }
 })
 
-    playButton.addEventListener('click', () => {
-      audio.play();
-      playButton.disabled = true; // Disable the button after playing
+/*
+
+
+
+
+
+-----------------------------Change nothing above this line------------------------- 
+
+
+
+
+
+
+
+*/
+//Add a google map field showing the location of the brewery
+//API key for google maps should be stored in a secure keys.js file
+    //set to the variable mapsAPIKey
+let map;
+async function getMap(brewery){
+    const position ={lat: parseFloat(brewery.latitude), lng: parseFloat(brewery.longitude)}
+    //@ts-ignore
+    const { Map } = await google.maps.importLibrary("maps");
+    const { Marker } = await google.maps.importLibrary("marker");
+    map = new Map(document.getElementById('map'), {
+        zoom: 15,
+        center: position,
+        mapId: `${brewery.name} map`,
     });
-  });
-  /*
+    const marker = new Marker({
+        map: map,
+        position: position,
+        title: brewery.name,
+    });
+}   
+// add interactivity to the form submit button so it is
+// uniform with the other buttons on the page
+submitBtn = document.getElementById('submit-button');
+submitBtn.addEventListener('mouseenter', ()=>submitBtn.className = 'mouseover');
+submitBtn.addEventListener('mouseleave', ()=>submitBtn.className = 'mouseoff');
 
-
-
-
-
-  -----------------------------Change nothing above this line------------------------- 
-
+//Write a function to find the nearest brewery by zip code
+//first look for matching zip code, then look for nearest if none match
+function searchByZip(zip){
+    fetch('https://api.openbrewerydb.org/v1/breweries?by_state=colorado&per_page=700')
+    .then(r=>r.json())
+    .then(data=>{
+        if (!data.find(function(brewery){
+            return brewery.postal_code.slice(0, 5) === zip
+        })) {
+//makes an array with only the zip codes of each brewery in the API
+            let allZips = data.map(brewery=>brewery.postal_code.slice(0,5))
+// goes through the zip code array, comparing the current array with the last closest
+// to the zip code entered and keeping whichever is closer, in order to find the single
+//closest
+            let nearZip = allZips.reduce((previous, current)=> {
+                return (Math.abs(current-zip) < Math.abs(previous-zip) ? current : previous)
+            })
+            showResults(data, nearZip)
+        } else {
+            showResults(data, zip)
+        }
+    })
+};
+//make a function to change the brewery list based on search results
+function showResults(results, value) {
+    breweryList.innerHTML = ''
+    let filteredresults = results.filter(brewery=> {
+        return (brewery.postal_code.slice(0, 5) === value) 
+    })
+    filteredresults.forEach(brewery=> {
+        listElement(brewery);
+    })
+    populateDetails(filteredresults[0])
+}
+let searchForm = document.getElementById('search-form');
+let zipField = document.getElementById('zip-field')
+searchForm.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    searchByZip(zipField.value)
+    searchForm.reset();
+});
+        

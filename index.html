@@ -4,16 +4,17 @@
         <audio id="background-audio">
             <source src="src/Audio/zither-polka-alpenmusik-music-from-the-alps-1394.mp3" type="audio/mpeg">
         </audio>
-        <button id="play-button">Play</button>
-    <title>BrewFinder</title>
+        <title>BrewFinder</title>
         <link rel="stylesheet" type="text/css" href="./style.css">
+        <script src="./keys.js"></script>
         <script defer src="./src/index.js"></script>
     </head>
-<body>
-    <div class="page">
-        <div id="header-container">
-            <div id="title-container">
-                <h1  class="headers" id="page-title">BrewFinder</h1>
+    <body>
+        <div class="page">
+            <div id="header-container">
+                <div id="title-container">
+                    <h1  class="headers" id="page-title">BrewFinder</h1>
+                    <button id="play-button">Play</button>
                 </div>
     <div id="images">
                 </div>
@@ -34,6 +35,15 @@
                         <span class="details" id="details-phone">Phone: <span id="phone-number">(000) 000-0000</span></span>
                     </div>
                     <div id="map"></div>
+                    <script>
+                        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+                          key: mapsAPIKey,
+                          v: "weekly",
+                          // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+                          // Add other bootstrap parameters as needed, using camel case.
+                        });
+                      </script>
+                      <h3 id="no-map">No Map</h3>
                     <button id="details-favorite" class="mouseoff">Favorite</button>
                 </div>
                 <div class="inner-containers" id="form-container">
@@ -51,6 +61,11 @@
                             <option value="contract">Contract</option>
                         </select>
                         <input type="submit" id="submit-button" class="mouseoff">
+                    </form>
+                    <form id="search-form">
+                        <label class="form-part">Locator</label>
+                        <input type="text" id="zip-field" placeholder="Enter Zip Code">
+                        <input type="submit" id="search-submit" class="buttons" value="Find Nearest Breweries">
                     </form>
                 </div>
             </div>
