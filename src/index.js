@@ -25,6 +25,7 @@ function initialize() {
 function listElement(brewery){
     let li = document.createElement('li');
     li.innerHTML=`${brewery.name}, ${brewery.city.italics()}`;
+    li.id = brewery.name;
     document.querySelector("#brewery-list").appendChild(li);
     li.addEventListener('click',()=>populateDetails(brewery));
     li.addEventListener('mouseenter', ()=>li.style.color = 'orange')
@@ -194,6 +195,10 @@ favBtn.addEventListener('click', ()=>{
                 })
             }
         }))
+        if (favSwap.textContent === '★') {
+            breweryLi = document.getElementById(breweryInfo.name)
+            breweryLi.remove();
+        }
         favBtn.className = 'favorite-mouseover'
         favBtn.textContent = 'Favorite'
     }
