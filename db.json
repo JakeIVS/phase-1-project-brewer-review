@@ -133,15 +133,15 @@
       "id": 11
     },
     {
-      "name": "FATE Brewing Company",
-      "street": "1600 38th St Ste 100",
+      "name": "10 Barrel Brewing Co - Denver",
+      "street": "2620 Walnut St",
       "state": "Colorado",
-      "city": "Boulder",
-      "latitude": "40.0149794",
-      "longitude": "-105.2454818",
+      "city": "Denver",
+      "latitude": "39.7592508",
+      "longitude": "-104.9853655",
       "website_url": null,
-      "phone": null,
-      "brewery_type": "brewpub",
+      "phone": "7205738992",
+      "brewery_type": "large",
       "id": 12
     }
   ]

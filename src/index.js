@@ -118,6 +118,7 @@ filterForm.addEventListener('submit', (e) => {
     let cityValue = filterForm.querySelector("#city-field").value;
     let typeValue = filterForm.querySelector("select").value;
     brewFilter(cityValue, typeValue);
+    favSwap.textContent = '☆';
     filterForm.reset();
 });
 
@@ -290,6 +291,7 @@ let zipField = document.getElementById('zip-field')
 searchForm.addEventListener('submit', (e)=>{
     e.preventDefault()
     searchByZip(zipField.value)
+    favSwap.textContent = '☆';
     searchForm.reset();
 });
         
