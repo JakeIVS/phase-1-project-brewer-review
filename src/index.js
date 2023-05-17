@@ -100,14 +100,16 @@ function brewFilter(cityValue, typeValue) {
         let isTypeMatched = typeValue === 'null' || brewery.brewery_type === typeValue;
         return isCityMatched && isTypeMatched;
     })
-    
-    // Clears existing list
-    breweryList.innerHTML = '';
-    
-    // Displays filtered results
-    filteredList.forEach(brewery => {
-        listElement(brewery);
-    });
+
+// Clears existing list
+  breweryList.innerHTML = '';
+  debugger  
+
+// Displays filtered results
+  filteredList.forEach(brewery => {
+    listElement(brewery);
+    debugger
+  });
 }
 // sets up filter form  to search city and type and added a retrieve to pass it through beerFilter 
 let filterForm = document.querySelector("#filter-form");
