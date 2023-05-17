@@ -143,6 +143,18 @@
       "phone": "9704841368",
       "brewery_type": "micro",
       "id": 16
+    },
+    {
+      "name": "6 & 40 Brewery/Taproom",
+      "street": null,
+      "state": "Colorado",
+      "city": "Lakewood",
+      "latitude": "39.6311085",
+      "longitude": "-105.1100582",
+      "website_url": "http://www.tomsbrewshop.com",
+      "phone": "3032325347",
+      "brewery_type": "planning",
+      "id": 17
     }
   ]
 }

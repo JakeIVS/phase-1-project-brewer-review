@@ -6,11 +6,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('background-audio');
     const playButton = document.getElementById('play-button');  
+    playButton.addEventListener('click', () => {
+        audio.play();
+        playButton.disabled = true; // Disable the button after playing
+        playButton.remove();
+    });
+    });
 document.addEventListener("DOMContentLoaded", initialize())
 const breweryList = document.querySelector('#brewery-list');
 let breweryInfo = {};
 let breweries = {};
-let favoriteBreweries = {};
 function initialize() {
     fetch('https://api.openbrewerydb.org/v1/breweries?by_state=colorado&per_page=700')
     .then(r=>r.json())
@@ -78,7 +83,6 @@ function populateDetails(brewery) {
             favBtn.textContent = 'Favorite'
         }
     })
-    debugger
     if (brewery.latitude === null) {
         map=document.getElementById('map');
         map.style.height = '0px'
@@ -90,25 +94,25 @@ function populateDetails(brewery) {
 }
 // added cityValues and typeValue to function- was only including city before also took out additional fetch
 // that was filtering data but not updating the left hand list with results 
- function brewFilter(cityValue, typeValue) { 
+function brewFilter(cityValue, typeValue) { 
     let filteredList = breweries.filter(function (brewery) {
-      let isCityMatched = cityValue === '' || brewery.city.toLowerCase().includes(cityValue.toLowerCase());
-      let isTypeMatched = typeValue === 'null' || brewery.brewery_type === typeValue;
-      return isCityMatched && isTypeMatched;
+        let isCityMatched = cityValue === '' || brewery.city.toLowerCase().includes(cityValue.toLowerCase());
+        let isTypeMatched = typeValue === 'null' || brewery.brewery_type === typeValue;
+        return isCityMatched && isTypeMatched;
     })
-
-// Clears existing list
-  breweryList.innerHTML = '';
-
-// Displays filtered results
-  filteredList.forEach(brewery => {
-    listElement(brewery);
-  });
+    
+    // Clears existing list
+    breweryList.innerHTML = '';
+    
+    // Displays filtered results
+    filteredList.forEach(brewery => {
+        listElement(brewery);
+    });
 }
 // sets up filter form  to search city and type and added a retrieve to pass it through beerFilter 
-    let form = document.querySelector("#filter-form");
-        form.addEventListener('submit', (e) => {
-        e.preventDefault();
+let form = document.querySelector("#filter-form");
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
     let cityValue = form.querySelector("#city-field").value;
     let typeValue = form.querySelector("select").value;
     
@@ -204,19 +208,13 @@ favBtn.addEventListener('click', ()=>{
     }
 })
 
-    playButton.addEventListener('click', () => {
-      audio.play();
-      playButton.disabled = true; // Disable the button after playing
-      playButton.remove();
-    });
-  });
-  /*
+/*
 
 
 
 
 
-  -----------------------------Change nothing above this line------------------------- 
+-----------------------------Change nothing above this line------------------------- 
 
 
 
@@ -224,13 +222,12 @@ favBtn.addEventListener('click', ()=>{
 
 
 
-  */
- 
-  //Add a google map field showing the location of the brewery
-  //API key for google maps should be stored in a secure keys.js file
-  //set to the variable mapsAPIKey
-  let map;
-  async function getMap(brewery){
+*/
+//Add a google map field showing the location of the brewery
+//API key for google maps should be stored in a secure keys.js file
+    //set to the variable mapsAPIKey
+let map;
+async function getMap(brewery){
     const position ={lat: parseFloat(brewery.latitude), lng: parseFloat(brewery.longitude)}
     //@ts-ignore
     const { Map } = await google.maps.importLibrary("maps");
@@ -251,3 +248,46 @@ favBtn.addEventListener('click', ()=>{
 submitBtn = document.getElementById('submit-button');
 submitBtn.addEventListener('mouseenter', ()=>submitBtn.className = 'mouseover');
 submitBtn.addEventListener('mouseleave', ()=>submitBtn.className = 'mouseoff');
+
+//Write a function to find the nearest brewery by zip code
+//first look for matching zip code, then look for nearest if none match
+function searchByZip(zip){
+    fetch('https://api.openbrewerydb.org/v1/breweries?by_state=colorado&per_page=700')
+    .then(r=>r.json())
+    .then(data=>{
+        if (!data.find(function(brewery){
+            return brewery.postal_code.slice(0, 5) === zip
+        })) {
+//makes an array with only the zip codes of each brewery in the API
+            let allZips = data.map(brewery=>brewery.postal_code.slice(0,5))
+            debugger 
+// goes through the zip code array, comparing the current array with the last closest
+// to the zip code entered and keeping whichever is closer, in order to find the single
+//closest
+            let closeZip = allZips.reduce((previous, current)=> {
+                return (Math.abs(current-zip) < Math.abs(previous-zip) ? current : previous)
+            })
+            breweryList.innerHTML = ''
+            data.forEach(brewery=> {
+                debugger
+                if (brewery.postal_code.slice(0, 5) === closeZip) {
+                    listElement(brewery);
+                }
+            })
+        } else {
+            breweryList.innerHTML = ''
+            data.forEach(brewery=>{
+                if (brewery.postal_code.slice(0, 5) === zip) {
+                    listElement(brewery);
+                }
+            })
+        }
+    })
+};
+let searchForm = document.getElementById('search-form');
+let zipField = document.getElementById('zip-field')
+searchForm.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    searchByZip(zipField.value)
+});
+        

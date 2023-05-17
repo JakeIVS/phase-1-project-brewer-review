@@ -13,7 +13,7 @@ body {
 	width: 100%;
 	display: grid;
 	grid-template-columns: 2fr 3fr 3fr;
-	grid-template-rows: 20% 1fr 1fr;
+	grid-template-rows: 20% 1fr 2fr;
 	grid-template-areas: 
 	"header header header"
 	"sidebar main main"
@@ -236,12 +236,12 @@ li {
 	color: white;
 }
 .white-mouseoff {
-	background-color: rgba(200, 200, 200, 0.5);
+	background-color: rgba(200, 200, 200, 0.7);
 	border-color: whitesmoke;
 	color: black;
 }
 .white-mouseover {
-	background-color: rgba(200, 200, 200, 0.7);
+	background-color: rgba(200, 200, 200, 0.8);
 	border-color: whitesmoke;
 	color: black;
 }
@@ -265,13 +265,15 @@ li {
 	background-position:bottom;
 	display: grid;
 	grid-area: filter;
+	grid-template-rows: 60% 30%;
+	grid-template-areas: "filter" "search";
 	border-top-left-radius: 50px;
 	border-top-right-radius: 50px;
 }
 #filter-form { 
 	color:rgb(255, 255, 255);
 	background-color: rgba(69, 69, 69, 0.69);
-	height:30%;
+	height:25%;
 	top: 0px;
 	font-family:Inter;
 	text-align:center;
@@ -280,13 +282,27 @@ li {
 	border-top-left-radius: 50px;
 	border-top-right-radius: 50px;
 }
+#search-form {
+	color:rgb(255, 255, 255);
+	align-self: end;
+	top: 0px;
+	font-family:Inter;
+	text-align:center;
+	letter-spacing:7px;
+	border-top-left-radius: 50px;
+	border-top-right-radius: 50px;
+}
+#search-submit {
+	padding: .5%;
+	border-radius: 10px;
+}
 #filter-header {
 	font-size: 2.5em;
 	justify-self: center;
 	align-self: start;
 }
 .form-part {
-margin-top: 5%;
+	margin-top: 5%;
 }
 label {
 	background-color: rgba(69, 69, 69, 0.69);
