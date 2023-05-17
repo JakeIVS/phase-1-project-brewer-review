@@ -115,8 +115,8 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     let cityValue = form.querySelector("#city-field").value;
     let typeValue = form.querySelector("select").value;
-    
     brewFilter(cityValue, typeValue);
+    form.reset();
 });
 
 // Show the details of the selected brewery in the center of the page
@@ -272,7 +272,7 @@ function searchByZip(zip){
         }
     })
 };
-//make a function to change the brewery list based on zip results
+//make a function to change the brewery list based on search results
 function showResults(results, value) {
     breweryList.innerHTML = ''
     let filteredresults = results.filter(brewery=> {
@@ -288,5 +288,6 @@ let zipField = document.getElementById('zip-field')
 searchForm.addEventListener('submit', (e)=>{
     e.preventDefault()
     searchByZip(zipField.value)
+    searchForm.reset();
 });
         
