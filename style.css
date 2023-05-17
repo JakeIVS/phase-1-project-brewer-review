@@ -13,7 +13,7 @@ body {
 	width: 100%;
 	display: grid;
 	grid-template-columns: 2fr 3fr 3fr;
-	grid-template-rows: 20% 1fr 2fr;
+	grid-template-rows: 20% 20% 2fr;
 	grid-template-areas: 
 	"header header header"
 	"sidebar main main"
@@ -176,6 +176,10 @@ li {
 	margin-right: 5px;
 	font-size:22px;
 	letter-spacing:0;
+	background-color: rgba(69, 69, 69, 0.69);
+	padding-top: 1%;
+	padding-bottom: 1%;
+	align-self: center;
 }
 #contact-info {
 	display: grid;
@@ -195,8 +199,9 @@ li {
 	justify-self: right;
 	margin-right: 15%;
 	width: 40%;
-	height: 100%;
+	height: 120%;
 	border-radius: 15px;
+	margin-top: 2%;
 }
 #no-map {
 	display: grid;
@@ -251,6 +256,7 @@ li {
 	justify-self: left;
 	align-self: center;
 	margin: 1%;
+	margin-top: 1%;
 	width: 10%;
 	font-size: 150%;
 	text-align: center;
