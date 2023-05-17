@@ -207,6 +207,7 @@ favBtn.addEventListener('click', ()=>{
     playButton.addEventListener('click', () => {
       audio.play();
       playButton.disabled = true; // Disable the button after playing
+      playButton.remove();
     });
   });
   /*

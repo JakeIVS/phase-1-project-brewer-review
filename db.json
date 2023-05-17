@@ -95,6 +95,54 @@
       "phone": "9702154536",
       "brewery_type": "brewpub",
       "id": 12
+    },
+    {
+      "name": "Cerberus Brewing Company",
+      "street": "702 W Colorado Ave",
+      "state": "Colorado",
+      "city": "Colorado Springs",
+      "latitude": "38.8330574",
+      "longitude": "-104.8374071",
+      "website_url": "http://www.cerberusbrewingco.com",
+      "phone": "7196362337",
+      "brewery_type": "brewpub",
+      "id": 13
+    },
+    {
+      "name": "Colorado Farm Brewery",
+      "street": "2070 County Road 12 S",
+      "state": "Colorado",
+      "city": "Alamosa",
+      "latitude": "37.40026048",
+      "longitude": "-105.9855918",
+      "website_url": "http://www.cofarmbeer.com",
+      "phone": "7195800051",
+      "brewery_type": "micro",
+      "id": 14
+    },
+    {
+      "name": "Eddyline Brewing LLC",
+      "street": "102 Linderman Ave",
+      "state": "Colorado",
+      "city": "Buena Vista",
+      "latitude": "38.84025",
+      "longitude": "-106.131606",
+      "website_url": "http://eddylinebrewery.com",
+      "phone": "7199666018",
+      "brewery_type": "micro",
+      "id": 15
+    },
+    {
+      "name": "Equinox Brewing",
+      "street": "133 Remington St",
+      "state": "Colorado",
+      "city": "Fort Collins",
+      "latitude": "40.5863266",
+      "longitude": "-105.0757134",
+      "website_url": "http://www.equinoxbrewing.com",
+      "phone": "9704841368",
+      "brewery_type": "micro",
+      "id": 16
     }
   ]
 }
