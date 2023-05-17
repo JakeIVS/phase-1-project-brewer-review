@@ -78,12 +78,12 @@ function populateDetails(brewery) {
 
 // Clears existing list
   breweryList.innerHTML = '';
-  debugger  
+//   debugger  
 
 // Displays filtered results
   filteredList.forEach(brewery => {
     listElement(brewery);
-    debugger
+    // debugger
   });
 }
 // sets up filter form  to search city and type and added a retrieve to pass it through beerFilter 
@@ -192,11 +192,3 @@ favBtn.addEventListener('click', ()=>{
 
   -----------------------------Change nothing above this line------------------------- 
 
-
-
-
-
-
-
-  */
- 
