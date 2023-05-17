@@ -260,30 +260,29 @@ function searchByZip(zip){
         })) {
 //makes an array with only the zip codes of each brewery in the API
             let allZips = data.map(brewery=>brewery.postal_code.slice(0,5))
-            debugger 
 // goes through the zip code array, comparing the current array with the last closest
 // to the zip code entered and keeping whichever is closer, in order to find the single
 //closest
-            let closeZip = allZips.reduce((previous, current)=> {
+            let nearZip = allZips.reduce((previous, current)=> {
                 return (Math.abs(current-zip) < Math.abs(previous-zip) ? current : previous)
             })
-            breweryList.innerHTML = ''
-            data.forEach(brewery=> {
-                debugger
-                if (brewery.postal_code.slice(0, 5) === closeZip) {
-                    listElement(brewery);
-                }
-            })
+            showResults(data, nearZip)
         } else {
-            breweryList.innerHTML = ''
-            data.forEach(brewery=>{
-                if (brewery.postal_code.slice(0, 5) === zip) {
-                    listElement(brewery);
-                }
-            })
+            showResults(data, zip)
         }
     })
 };
+//make a function to change the brewery list based on zip results
+function showResults(results, value) {
+    breweryList.innerHTML = ''
+    let filteredresults = results.filter(brewery=> {
+        return (brewery.postal_code.slice(0, 5) === value) 
+    })
+    filteredresults.forEach(brewery=> {
+        listElement(brewery);
+    })
+    populateDetails(filteredresults[0])
+}
 let searchForm = document.getElementById('search-form');
 let zipField = document.getElementById('zip-field')
 searchForm.addEventListener('submit', (e)=>{
