@@ -2,20 +2,20 @@
 // leanred that most modern web browsers have implemented autoplay policies that restrict autoplaying media- makes sense
 // policies typically require some form of user interaction before allowing media to play automatically which is
 // why I created the 'play' button at top so when it it clicked, it palys once and disables.
-
 document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('background-audio');
     const playButton = document.getElementById('play-button');  
     playButton.addEventListener('click', () => {
         audio.play();
         playButton.disabled = true; // Disable the button after playing
-        playButton.remove();
+        playButton.remove();//hides button after use
     });
     });
 document.addEventListener("DOMContentLoaded", initialize())
 const breweryList = document.querySelector('#brewery-list');
 let breweryInfo = {};
 let breweries = {};
+//pulls 200 Colorado breweries from a breweries API
 function initialize() {
     fetch('https://api.openbrewerydb.org/v1/breweries?by_state=colorado&per_page=700')
     .then(r=>r.json())
@@ -27,6 +27,7 @@ function initialize() {
         populateDetails(data[0]);
     })
 }
+//creates a list of all the brewery names and cities pulled from an object
 function listElement(brewery){
     let li = document.createElement('li');
     li.innerHTML=`${brewery.name}, ${brewery.city.italics()}`;
@@ -36,7 +37,9 @@ function listElement(brewery){
     li.addEventListener('mouseenter', ()=>li.style.color = 'orange')
     li.addEventListener('mouseleave', ()=>li.style.color = 'white')
 }
-
+//Adds the details of the selected brewery (name, address, city/state, brewery type,
+// website, phone, and lattitude/longitude) to the middle div of the page. If any of
+//these details are missing from the API, will indicate accordingly.
 function populateDetails(brewery) {
     let name = document.querySelector('#details-name');
     let street = document.querySelector('#details-street')
@@ -53,7 +56,8 @@ function populateDetails(brewery) {
         longitude: brewery.longitude,
         url: brewery.website_url,
         phone: brewery.phone,
-        type: brewery.brewery_type 
+        type: brewery.brewery_type,
+        zip: brewery.postal_code 
     }
     name.textContent = breweryInfo.name;
     street.textContent = breweryInfo.street;
@@ -70,7 +74,7 @@ function populateDetails(brewery) {
     } else {
         phone.textContent = `(${breweryInfo.phone.slice(0, 3)}) ${breweryInfo.phone.slice(3, 6)}-${breweryInfo.phone.slice(6)} `;
     };
-    fetch('http://localhost:3000/breweries')
+    fetch('http://localhost:3000/breweries') //checks favorite list to see if selected brewery is there, and adds a favorite/unfavorite button accordingly
     .then(r=>r.json())
     .then(data=>{
         if (data.find(function(currentBrewery){
@@ -83,7 +87,7 @@ function populateDetails(brewery) {
             favBtn.textContent = 'Favorite'
         }
     })
-    if (brewery.latitude === null) {
+    if (brewery.latitude === null) { //hides map if no location data is given
         map=document.getElementById('map');
         map.style.height = '0px'
     } else {
@@ -121,7 +125,6 @@ filterForm.addEventListener('submit', (e) => {
     favSwap.textContent = '☆';
     filterForm.reset();
 });
-
 // Show the details of the selected brewery in the center of the page
 // add a favorite button that switches the list to your favorited breweries
 let favSwap = document.querySelector('#favorites-btn')
@@ -166,7 +169,8 @@ favBtn.addEventListener('mouseleave', ()=> {
         favBtn.className = 'white-mouseoff'
     }
 });
-favBtn.addEventListener('click', ()=>{
+// set button to add or delete an object from the favorites list, depending on whether it is currently in the list or not
+favBtn.addEventListener('click', ()=>{ 
     if (favBtn.textContent === 'Favorite') {
         fetch('http://localhost:3000/breweries',{
             method: "POST",
@@ -210,25 +214,9 @@ favBtn.addEventListener('click', ()=>{
         favBtn.textContent = 'Favorite'
     }
 })
-
-/*
-
-
-
-
-
------------------------------Change nothing above this line------------------------- 
-
-
-
-
-
-
-
-*/
 //Add a google map field showing the location of the brewery
 //API key for google maps should be stored in a secure keys.js file
-    //set to the variable mapsAPIKey
+//set to the variable mapsAPIKey
 let map;
 async function getMap(brewery){
     const position ={lat: parseFloat(brewery.latitude), lng: parseFloat(brewery.longitude)}
@@ -246,14 +234,14 @@ async function getMap(brewery){
         title: brewery.name,
     });
 }   
-// add interactivity to the form submit button so it is
+// add css interactivity to the form submit button so it is
 // uniform with the other buttons on the page
 submitBtn = document.getElementById('submit-button');
 submitBtn.addEventListener('mouseenter', ()=>submitBtn.className = 'mouseover');
 submitBtn.addEventListener('mouseleave', ()=>submitBtn.className = 'mouseoff');
-
 //Write a function to find the nearest brewery by zip code
-//first look for matching zip code, then look for nearest if none match
+//first look for matching zip code
+//if none match, look for closest numerical zip code
 function searchByZip(zip){
     fetch('https://api.openbrewerydb.org/v1/breweries?by_state=colorado&per_page=700')
     .then(r=>r.json())
@@ -286,6 +274,7 @@ function showResults(results, value) {
     })
     populateDetails(filteredresults[0])
 }
+// Adds a form to enter a zip code to search in or near
 let searchForm = document.getElementById('search-form');
 let zipField = document.getElementById('zip-field')
 searchForm.addEventListener('submit', (e)=>{
@@ -294,4 +283,3 @@ searchForm.addEventListener('submit', (e)=>{
     favSwap.textContent = '☆';
     searchForm.reset();
 });
-        
