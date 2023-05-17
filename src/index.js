@@ -110,13 +110,13 @@ function brewFilter(cityValue, typeValue) {
     });
 }
 // sets up filter form  to search city and type and added a retrieve to pass it through beerFilter 
-let form = document.querySelector("#filter-form");
-form.addEventListener('submit', (e) => {
+let filterForm = document.querySelector("#filter-form");
+filterForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    let cityValue = form.querySelector("#city-field").value;
-    let typeValue = form.querySelector("select").value;
+    let cityValue = filterForm.querySelector("#city-field").value;
+    let typeValue = filterForm.querySelector("select").value;
     brewFilter(cityValue, typeValue);
-    form.reset();
+    filterForm.reset();
 });
 
 // Show the details of the selected brewery in the center of the page
