@@ -41,6 +41,8 @@ body {
 
 #title-container { 
 	background-image:conic-gradient(#e0a951, #b05315,#744509, #e0a951);
+	background-position-x: 11px;
+	background-position-y: 4px;
 	grid-area: title;
 	display: grid;
 	place-items: center;
