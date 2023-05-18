@@ -1,13 +1,7 @@
-Brewer Review is a Webpage that lists all breweries in the brewery API. Users can filter breweries by state and type and view details such as address and name.
+BrewFinder is a Webpage that can be used to find and filter up to 200 Colorado breweries from a free brewery API. 
 
-CSS and HTML:
--images in header
--filter form html and css
--pick background images/colors
--choose fonts
+Clicking on a brewery in the brewery list on the left will bring up the details of that brewery. These details include name, address, city, phone number, website link, brewery type (micro-brewery, large brewery, etc.), and the location on a google map widget.
 
-JS:
--fetch brewery api
--populate #brewery-list with brewery names
--When you click on a name, it should populate the details container with the brewery details
--filter brewery results using the #filter-form
+The brewery list can be filtered by city and/or brewery type, using the form above the details card. You can also filter the list using a zip code locator form, which will show all breweries within the entered zip code or, if there are none in the entered zip code, will list breweries from the next closest zip code numerically.
+
+On the details card, there is a button that can be used to add or remove a brewery to your favorites list. Your favorites list can be accesed via a star button on the top right of the Brewery List. (Note: the favorites list utilizes the db.json file, and will only function if you are running the json server by running [json-server --watch db.json] in your terminal)
