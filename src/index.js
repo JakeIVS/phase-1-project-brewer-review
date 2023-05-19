@@ -114,6 +114,7 @@ function brewFilter(cityValue, typeValue) {
     listElement(brewery);
     debugger
   });
+  populateDetails(filteredList[0]);
 }
 // sets up filter form  to search city and type and added a retrieve to pass it through beerFilter 
 let filterForm = document.querySelector("#filter-form");
