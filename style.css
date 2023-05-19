@@ -93,7 +93,7 @@ body {
 	grid-area: title;
 	justify-self: end;
 	align-self: end;
-	width: 10%;
+	width: 3rem;
 	font-size: 150%;
 }
 .buttons {
@@ -258,7 +258,7 @@ li {
 	align-self: center;
 	margin: 1%;
 	margin-top: 1%;
-	width: 10%;
+	width: 7rem;
 	font-size: 150%;
 	text-align: center;
 	border-radius: 10px;
