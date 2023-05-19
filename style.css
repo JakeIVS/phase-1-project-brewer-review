@@ -208,8 +208,8 @@ li {
 	display: grid;
 	grid-area: info;
 	align-self: center;
-	justify-self: right;
-	margin-right: 28%;
+	justify-self: center;
+	margin-left: 30%;
 	font-size: 400%;
 	color: white;
 	background-color: rgba(69, 69, 69, 0.69);
